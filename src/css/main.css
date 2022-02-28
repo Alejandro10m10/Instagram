@@ -29,6 +29,7 @@ header{
     position: fixed;
     top: 0;
     background-color: white;
+    z-index: 2;
 }
 
 .nav{
@@ -89,6 +90,95 @@ header{
 }
 
 main{
-    margin-top: 60px;
+    margin-top: 69.5px;
     height: 1200px;
+}
+
+.histories__container{
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.no-display{
+    display: none;
+}
+
+.histories{
+    width: 97.2%;
+    margin: 0 0px 9.5px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.historie{
+    display: grid;
+    min-width: 90px;
+    height: 95px;
+    place-items: center;
+    margin: 0 -6px;
+}
+
+.historie__outline{
+    border-radius: 50%;
+    background: linear-gradient(to bottom left, #d02c85 0%, #faa358 100%);
+    cursor: pointer;
+}
+
+
+.historie__user-profile-picture{
+    width: 60.6px;
+    height: 60.6px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    margin: 2px;
+    border: 2.3px solid white;
+}
+
+.historie__user-profile-name{
+    font-size: 1.2rem;
+    max-width: 74px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+}
+
+.histories__arrow{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.histories__arrowIcon{
+    width: 28px;
+    height: 35px;
+    display: inline-block;
+    background-image: url('https://www.instagram.com/static/bundles/es6/sprite_glyphs_42be7ea14768.png/42be7ea14768.png');
+    background-position: -255px -110px;
+    background-repeat: no-repeat;
+}
+
+.histories__arrowIcon__previus{
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+#btnNextHistories{
+    position: absolute;
+    top: 26px;
+    right: 3px;
+}
+
+#btnPreviusHistories{
+    position: absolute;
+    top: 26px;
+    left: 3px;
 }
