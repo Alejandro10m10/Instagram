@@ -26,12 +26,15 @@ header{
     width: 100%;
     height: 60px;
     border-bottom: 1px solid #dfdfdf;
+    position: fixed;
+    top: 0;
+    background-color: white;
 }
 
 .nav{
     width: 90%;
     height: 100%;
-    margin: 0 auto;
+    margin: 4px auto 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,7 +56,7 @@ header{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     place-items: center;
-    gap: 20px;
+    gap: 22px;
 }
 
 .nav__left__item__messenger{
@@ -83,4 +86,8 @@ header{
     height: 24px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+main{
+    height: 1200px;
 }
