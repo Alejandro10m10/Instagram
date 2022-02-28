@@ -89,5 +89,6 @@ header{
 }
 
 main{
+    margin-top: 60px;
     height: 1200px;
 }
