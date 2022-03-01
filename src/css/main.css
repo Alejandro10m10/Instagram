@@ -21,6 +21,10 @@ a{
     text-decoration: none;
 }
 
+img{
+    pointer-events: none; /* Avoid dragging an img */
+}
+
 /* Header */
 header{
     width: 100%;
@@ -257,4 +261,56 @@ main{
     background: linear-gradient(to bottom left, #d02c85 0%, #faa358 100%);
     cursor: pointer;
     margin: 0 auto;
+}
+
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.postPicture{
+    width: 100%;
+}
+
+.post__content__pictures{
+    width: 100%;
+    height: auto;
+}
+
+.post__footer{
+    padding: 0 16px;
+}
+
+.post__footer__iconsIteration{
+    width: 100%;
+    height: 54px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 120px 1fr;
+}
+
+.post__footer__iconsIteration__left{
+    height: 40px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 40px);
+}
+
+.post__footer__iconsIteration__left--heart-content{
+    display: inline-grid;
+}
+
+.post__footer__iconsIteration__right{
+    display: grid;
+    justify-items: right;
+}
+
+.post__footer__iconsIteration__left svg,
+.post__footer__iconsIteration__right svg{
+    cursor: pointer;
 }
