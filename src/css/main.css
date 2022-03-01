@@ -156,11 +156,12 @@ main{
 }
 
 .histories__arrowIcon{
-    width: 28px;
-    height: 35px;
+    border-radius: 60%;
+    width: 26px;
+    height: 30px;
     display: inline-block;
     background-image: url('https://www.instagram.com/static/bundles/es6/sprite_glyphs_42be7ea14768.png/42be7ea14768.png');
-    background-position: -255px -110px;
+    background-position: -255px -113px;
     background-repeat: no-repeat;
 }
 
