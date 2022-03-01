@@ -89,15 +89,12 @@ header{
     cursor: pointer;
 }
 
-main{
-    margin-top: 69.5px;
-    height: 1200px;
-}
-
 .histories__container{
+    padding-top: 10px;
     position: relative;
     width: 100%;
     border-bottom: 1px solid #dfdfdf;
+    background-color: white;
 }
 
 .no-display{
@@ -174,12 +171,90 @@ main{
 
 #btnNextHistories{
     position: absolute;
-    top: 26px;
-    right: 3px;
+    top: 37px;
+    right: 4.7px;
 }
 
 #btnPreviusHistories{
     position: absolute;
-    top: 26px;
-    left: 3px;
+    top: 37px;
+    left: 4.7px;
+}
+
+/* Main */
+main{
+    margin-top: 59.5px;
+    height: 1200px;
+    background-color: #f7f7f7;
+}
+
+/* Posts */
+.posts__container{
+    margin-top: 23px;
+}
+
+.post__header{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 48px;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.post__header__more-options{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+.post__header__postInformation{
+    display: grid;
+    grid-template-columns: 65px 1fr;
+}
+
+.post__header__postInformation__img{
+    display: inherit;
+    place-content: center;
+}
+
+.post__header__postInformation__user{
+    position: relative;
+    left: -3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.post__header__postInformation__user__name{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.post__header__postInformation__user__ubication{
+    font-size: 1.2rem;
+    color: rgb(142, 142, 142);
+    margin-top: 4px;
+}
+
+
+.post__header__postInformation__user-profile-picture{
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    border: 2px solid white;
+    margin: 0 auto;
+}
+
+.post__header__postInformation__historie__outline{
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom left, #d02c85 0%, #faa358 100%);
+    cursor: pointer;
+    margin: 0 auto;
 }
