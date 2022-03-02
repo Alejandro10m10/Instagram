@@ -264,6 +264,15 @@ main{
     margin: 0 auto;
 }
 
+.post__header__postInformation__historie__no-outline{
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
 .no-select {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -374,8 +383,8 @@ main{
     text-decoration: underline;
 }
 
-.post__footer__likes__content__following-profile{
-    padding-left: 5px;
+.post__footer__likes__people{
+    padding-right: 5px;
 }
 
 .post__footer__description__anchor,
@@ -438,7 +447,8 @@ main{
     cursor: pointer;
 }
 
-.post__content__pictures__button{
+.post__content__pictures__button,
+.btnSeeTagsOnPost{
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -446,6 +456,18 @@ main{
     display: grid;
     place-items: center;
     position: absolute;
+}
+
+.btnSeeTagsOnPost{
+    width: 28px;
+    height: 28px;
+    background-color: #313130;
+    border-radius: 50%;
+    bottom: 2.75%;
+    left: 2.9%;
+}
+
+.post__content__pictures__button{
     margin: 16px 8px;
 }
 
