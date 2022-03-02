@@ -192,13 +192,13 @@ main{
     background-color: #f7f7f7;
 }
 
-/* Posts */
-.posts__container{
+.post{
     margin-top: 23px;
+    padding-bottom: 2px;
+    background-color: white;
 }
 
 .post__header{
-    background-color: white;
     display: grid;
     grid-template-columns: 1fr 48px;
     align-items: center;
@@ -313,4 +313,120 @@ main{
 .post__footer__iconsIteration__left svg,
 .post__footer__iconsIteration__right svg{
     cursor: pointer;
+}
+
+.post__footer__likes, 
+.post__footer__likes__following, 
+.post__footer__likes__content{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.post__footer__likes__following__profile{
+    background-color: white;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+}
+
+.post__footer__likes__following__profile__picture{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 1px;
+}
+
+.post__footer__likes__following__profile--moveLeft{
+    position: relative;
+    left: -5px;
+}
+
+.post__footer__likes__following__profile--moveLeft2{
+    position: relative;
+    left: -10px; 
+}
+
+
+.post__footer__likes__people, 
+.post__footer__likes__people__total,
+.post__footer__likes__people__following,
+.post__footer__description__user,
+.post__footer__comments__user,
+.post__footer__viewed__people{
+    font-size: 1.4rem;
+    font-weight: lighter;
+}
+
+.post__footer__likes__people__following,
+.post__footer__likes__people__total{
+    color: black;
+    font-weight: 600;
+}
+
+.post__footer__likes__people__total{
+    cursor: pointer;
+}
+
+.post__footer__likes__people__following:hover{
+    text-decoration: underline;
+}
+
+.post__footer__likes__content__following-profile{
+    padding-left: 5px;
+}
+
+.post__footer__description__anchor,
+.post__footer__comments__anchor{
+    margin-right: 3px;
+}
+
+.post__footer__description{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-top: 8px;
+}
+
+.post__footer__viewed{
+    margin-top: 5px;
+}
+
+.post__footer__comments,
+.post__footer__comments__user{
+    margin-top: 2px;
+}
+
+.post__footer__comments__user{
+    padding-right: 15px;
+}
+
+.post__footer__viewed__people{
+    color: rgb(142, 142, 142);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.post__footer__comments__content{
+    display: grid;
+    grid-template-columns: 1fr 12px;
+}
+
+.post__footer__comments__user__heart{
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.post__footer__comments__user__heart svg:hover{
+    fill: #455664;
+}
+
+.post__footer__time__published{
+    color: rgb(142, 142, 142);
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.post__footer__time{
+    margin: 15px 0;
 }
