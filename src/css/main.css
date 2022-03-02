@@ -430,3 +430,8 @@ main{
 .post__footer__time{
     margin: 15px 0;
 }
+
+.post__footer__description__user__tagfriend{
+    color: rgb(0, 55, 107);
+    cursor: pointer;
+}
