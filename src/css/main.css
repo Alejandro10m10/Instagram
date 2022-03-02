@@ -101,7 +101,8 @@ header{
     background-color: white;
 }
 
-.no-display{
+.no-display,
+.post__content__pictures .no-display{
     display: none;
 }
 
@@ -280,6 +281,7 @@ main{
 .post__content__pictures{
     width: 100%;
     height: auto;
+    position: relative;
 }
 
 .post__footer{
@@ -434,4 +436,41 @@ main{
 .post__footer__description__user__tagfriend{
     color: rgb(0, 55, 107);
     cursor: pointer;
+}
+
+.post__content__pictures__button{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    margin: 16px 8px;
+}
+
+.post__content__pictures__button span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://www.instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png');
+    background-repeat: no-repeat;
+}
+
+.nextPost__icon{
+    background-position: -162px -98px;
+}
+
+.previusPost__icon{
+    background-position: -130px -98px;
+}
+
+.btnNextPost{
+    top: calc(50% - 30px);
+    right: 0;
+}
+
+.btnPreviusPost{
+    top: calc(50% - 30px);
+    left: 0;
 }
