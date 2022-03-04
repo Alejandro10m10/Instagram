@@ -496,3 +496,58 @@ main{
     top: calc(50% - 30px);
     left: 0;
 }
+
+.post__content__pictures__nav{
+    position: relative;
+    height: auto;
+}
+
+.pictureOnScreen{
+    display: inline-block;
+}
+
+
+/* Tags */
+.tagOnPosts{
+    display: grid;
+    place-items: center;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 62.2741%;
+    top: 81.5302%;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 4.5px;
+}
+
+.tagOnPosts__user{
+    display: inline-block;
+    width: fit-content;
+    height: auto;
+    color: white;
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.tagOnPosts__user__box__name{
+    margin: 0 12px;
+}
+
+.tagOnPosts__user__box{
+    display: inline-block;
+    line-height: 36px;
+    position: relative;
+}
+
+.tooltip:after{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 69%;
+    background-color: rgba(0, 0, 0, 0.85);
+    transform: translateX(-50%) translateY(50%) rotate(45deg);
+}
+
+
