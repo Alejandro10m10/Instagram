@@ -654,7 +654,7 @@ main{
 
     /* Search Form */
     .nav__center{
-        width: 30%;
+        width: 36%;
         max-width: 268px;
         height: 36px;
         place-content: center;
@@ -663,10 +663,11 @@ main{
         border-radius: 8px;
         position: relative;
         top: -2.5px;
+        right: calc(0 + 254px);
     }
 
     .nav__center__search{
-        position: relative;
+        position: absolute;
         min-width: 147.8px;
         height: 25px;
         padding: 3px 16px;
@@ -674,6 +675,7 @@ main{
         justify-content: center;
         align-items: center;
         place-content: center;
+        left: 6.5%;
     }
 
     #txtSearch{
