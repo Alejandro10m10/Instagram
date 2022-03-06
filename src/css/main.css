@@ -37,10 +37,12 @@ header{
 }
 
 .nav{
-    width: 90%;
+    width: 100%;
     height: 100%;
-    margin: 4px auto 0 auto;
+    padding: 0 20px;
+    margin: 3px auto 0 auto;
     display: flex;
+    place-content: center;
     align-items: center;
     justify-content: space-between;
 }
@@ -49,6 +51,12 @@ header{
     display: grid;
     place-content: center;
     place-items: center;
+}
+
+
+.nav__right__item__anchor img{
+    position: relative;
+    top: 1px;
 }
 
 .nav__right{
@@ -595,6 +603,7 @@ main{
 
 .post__content__pictures__nav__photo{
     position: relative;
+    width: 100%;
 }
 
 .postVideo__controlls{
@@ -626,4 +635,68 @@ main{
     width: 135px;
     height: 135px;
     background-image: url('../assets/icon/video-controls.png');
+}
+
+/* Search Form */
+.nav__center{
+    display: inline-block;
+    min-width: 179.8px;
+    height: 36px;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    background-color: #efefef;
+    border-radius: 8px;
+    position: relative;
+    top: -2.5px;
+}
+
+.nav__center__search{
+    position: relative;
+    min-width: 147.8px;
+    height: 25px;
+    padding: 3px 16px;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    place-content: center;
+}
+
+#txtSearch{
+    border: none;
+    font-size: 1.6rem;
+    color: rgb(38, 38, 38);
+    outline: none;
+    background-color: transparent;
+    width: 120px;
+    height: 100%;
+    position: relative;
+    left: 10%;
+    top: 1.5px;
+}
+
+#txtSearch::placeholder{
+    color: rgba(142, 142, 142, 0.671);
+}
+
+.searchIcon{
+    position: absolute;
+    left: 1.5px;
+    color: rgba(142, 142, 142);
+}
+
+.eraseSearchIcon{
+    display: inline-block;
+    background-image: url('https://www.instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png');
+    background-position: -318px -333px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -2.9px;
+    top: 2.8px;
+}
+
+.nav__center__search span.no-display{
+    display: none;
 }
