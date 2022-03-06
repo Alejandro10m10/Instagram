@@ -198,6 +198,9 @@ header{
 main{
     margin-top: 59.5px;
     height: auto;
+}
+
+body{
     background-color: #f7f7f7;
 }
 
@@ -724,6 +727,93 @@ main{
         max-width: 600px;
         border: 1px solid #dfdfdf;
         margin: 23px auto 0 auto;
+    }
+
+}
+
+@media (min-width: 1000px) {
+
+    body{
+        display: grid;
+        grid-template-areas: "header header"
+                             "main suggestions"
+                             "main footer";
+    }
+
+    header{
+        display: grid;
+        grid-area: "header";
+    }
+
+    main{
+        display: grid;
+        grid-area: "main";
+        padding-left: 14px;
+    }
+
+    .suggestions{
+        margin-top: 59.5px;
+        padding-top: 25px;
+        position: relative;
+        display: grid;
+        grid-area: "suggestions";
+        height: 500px;
+    }
+
+    footer{
+        position: relative;
+        margin-top: 120px;
+        display: grid;
+        grid-area: "footer";
+    }
+
+    /* Aside */
+    .account{
+        margin-top: 27.2px;
+        height: 56px;
+        width: 293px;
+        display: grid;
+        grid-template-columns: 56px 1fr 35.46px;
+        place-content: center;
+        align-items: center;
+    }
+
+    .account__picture{
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+    }
+
+    .account__user{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin-left: 16.5px;
+    }
+
+    .account__user__name{
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .account__user__fullname{
+        color: rgb(142, 142, 142);
+        font-size: 1.4rem;
+    }
+
+    .account__switch{
+        height: fit-content;
+        display: grid;
+        place-content: center;
+        place-items: center;
+        color: rgb(0, 149, 246);
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: transparent;
     }
 
 }
