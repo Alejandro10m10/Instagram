@@ -642,11 +642,6 @@ main{
     display: none;
 }
 
-
-@media (min-width: 615px) {
-
-}
-
 @media (min-width: 640px) {
     .nav .no-display{
         display: grid;
@@ -712,4 +707,23 @@ main{
         right: -2.9px;
         top: 2.8px;
     }
+
+    /* Changing the main children elements */
+    main{
+        padding: 25px 29px 0 29px;
+    }
+
+    .histories__container{
+        border: 1px solid #dfdfdf;
+        padding-top: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .post{
+        max-width: 600px;
+        border: 1px solid #dfdfdf;
+        margin: 23px auto 0 auto;
+    }
+
 }
