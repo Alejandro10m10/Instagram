@@ -34,6 +34,7 @@ header{
     top: 0;
     background-color: white;
     z-index: 2;
+    left: 0;
 }
 
 .nav{
@@ -641,7 +642,8 @@ body{
 }
 
 .nav .no-display,
-.nav__center__search span.no-display{
+.nav__center__search span.no-display,
+.suggestions, footer{
     display: none;
 }
 
@@ -713,7 +715,9 @@ body{
 
     /* Changing the main children elements */
     main{
-        padding: 25px 29px 0 29px;
+        width: fit-content;
+        padding-top: 25px;
+        margin: 59.5px auto 0 auto;
     }
 
     .histories__container{
@@ -735,33 +739,42 @@ body{
 
     body{
         display: grid;
-        grid-template-areas: "header header"
-                             "main suggestions"
-                             "main footer";
-    }
-
-    header{
-        display: grid;
-        grid-area: "header";
+        grid-template-columns: 1fr 293px;
     }
 
     main{
         display: grid;
-        grid-area: "main";
-        padding-left: 12px;
+        margin-left: auto;
+        width: 614px;
     }
 
-    .suggestions{
-        margin-top: 59.5px;
-        padding-top: 25px;
-        position: relative;
-        display: grid;
-        grid-area: "suggestions";
-        grid-template-rows: 56px auto;
-        height: fit-content;
+    .histories__container,
+    .posts__container{
+        max-width: 614px;
+    }
+
+    .post{
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 614px;
     }
 
     /* Aside */
+    .suggestions{
+        position: relative;
+        margin-top: 59.5px;
+        padding-top: 25px;
+        display: grid;
+        grid-template-rows: 56px auto;
+        height: fit-content;
+        display: grid;
+        grid-column-start: 2;
+    }
+
+    .suggestions__container{
+        position: fixed;
+    }
+
     .account{
         margin-top: 27.2px;
         height: 56px;
@@ -837,7 +850,7 @@ body{
 
     /* 'Suggestions For You' element */
     .suggestion{
-        margin-top: 52px;
+        margin-top: 25px;
         width: 293px;
         height: auto;
         height: fit-content;
@@ -877,9 +890,8 @@ body{
 
     /* Footer */
     footer{
-        position: absolute;
+        position: fixed;
         display: grid;
-        grid-area: "footer";
         right: 0;
         top: 482.1px;
         width: calc(32.5%);
@@ -931,4 +943,28 @@ body{
     }
     
 
+}
+
+@media (min-width: 1400px) {
+    body{
+        margin: 0 19%;
+    }
+
+    main{
+        margin-right: 28px;
+    }
+
+    footer{
+        width: fit-content;
+        right: 17.6%;
+    }
+
+    header{
+        padding: 0 17.9%;
+    }
+
+    .nav__right__item:first-child{
+        width: 255px;
+        justify-content: start;
+    }
 }
