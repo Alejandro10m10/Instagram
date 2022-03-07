@@ -766,13 +766,14 @@ body{
         padding-top: 25px;
         display: grid;
         grid-template-rows: 56px auto;
-        height: fit-content;
+        height: auto;
         display: grid;
         grid-column-start: 2;
     }
 
     .suggestions__container{
         position: fixed;
+        left: calc(50% + 185px);
     }
 
     .account{
@@ -894,8 +895,9 @@ body{
         display: grid;
         right: 0;
         top: 482.1px;
-        width: calc(32.5%);
+        width: fit-content;
         height: auto;
+        left: calc(50% + 185px);
     }
 
     .footer__nav{
@@ -942,17 +944,22 @@ body{
         margin-left: 0px;
     }
     
-
+    header{
+        padding: 0 6.9%;
+    }
 }
 
 @media (min-width: 1400px) {
+    
     body{
         margin: 0 19%;
     }
+    
 
     main{
         margin-right: 28px;
     }
+    
 
     footer{
         width: fit-content;
@@ -962,9 +969,10 @@ body{
     header{
         padding: 0 17.9%;
     }
-
+    
     .nav__right__item:first-child{
         width: 255px;
         justify-content: start;
     }
+    
 }
