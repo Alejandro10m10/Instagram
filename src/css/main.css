@@ -758,13 +758,7 @@ body{
         display: grid;
         grid-area: "suggestions";
         grid-template-rows: 56px auto;
-    }
-
-    footer{
-        position: relative;
-        margin-top: 120px;
-        display: grid;
-        grid-area: "footer";
+        height: fit-content;
     }
 
     /* Aside */
@@ -846,6 +840,7 @@ body{
         margin-top: 52px;
         width: 293px;
         height: auto;
+        height: fit-content;
     }
 
     .suggestion__account__picture{
@@ -880,5 +875,60 @@ body{
         margin-top: 2.2px;
     }
 
+    /* Footer */
+    footer{
+        position: absolute;
+        display: grid;
+        grid-area: "footer";
+        right: 0;
+        top: 482.1px;
+        width: calc(32.5%);
+        height: auto;
+    }
+
+    .footer__nav{
+        width: 317.6px;
+    }
+
+    .footer__nav__ul{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7.2px 0;
+        margin-bottom: 23.5px;
+    }
+
+    .footer__nav__ul__listitem{
+        margin-right: 3px;
+    }
+
+    .footer__nav__ul__listitem:last-child{
+        margin-right: 0px;
+    }
+
+    .footer__nav__ul__listitem,
+    .footer__nav__copyright{
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+
+    .footer__nav__ul__listitem a,
+    .footer__nav__copyright{
+        color: rgb(199, 199, 199);
+    }
+
+    .footer__nav__copyright{
+        text-transform: uppercase;
+    }
+
+    .footer__nav__ul__listitem a::after{
+        content: '\00B7';
+        margin-left: 3px;
+    }
+    
+    .footer__nav__ul__listitem:last-child a::after{
+        content: '';
+        margin-left: 0px;
+    }
+    
 
 }
