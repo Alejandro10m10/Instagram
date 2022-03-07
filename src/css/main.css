@@ -748,7 +748,7 @@ body{
     main{
         display: grid;
         grid-area: "main";
-        padding-left: 14px;
+        padding-left: 12px;
     }
 
     .suggestions{
@@ -757,7 +757,7 @@ body{
         position: relative;
         display: grid;
         grid-area: "suggestions";
-        height: 500px;
+        grid-template-rows: 56px auto;
     }
 
     footer{
@@ -784,36 +784,101 @@ body{
         border-radius: 50%;
     }
 
-    .account__user{
+    .account__user,
+    .suggestion__account__user{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: start;
+    }
+
+    .account__user{
         margin-left: 16.5px;
     }
 
-    .account__user__name{
-        font-size: 1.4rem;
+    .suggestion__account__user{
+        margin-left: 15.1px;
+    }
+
+    .account__user__name,
+    .suggestion__account__user__name{
         font-weight: bold;
+    }
+
+    .account__user__name,
+    .account__user__fullname,
+    .suggestion__header__forYou,
+    .suggestion__header_seeAll,
+    .suggestion__account__user__name{
+        font-size: 1.4rem;
     }
 
     .account__user__fullname{
         color: rgb(142, 142, 142);
-        font-size: 1.4rem;
     }
 
-    .account__switch{
+    .account__switch,
+    .suggestion__header_seeSuggestions,
+    .suggestion__account__follow{
         height: fit-content;
         display: grid;
         place-content: center;
         place-items: center;
-        color: rgb(0, 149, 246);
         font-size: 1.2rem;
-        font-weight: bold;
         cursor: pointer;
         outline: none;
         border: none;
         background-color: transparent;
+        font-weight: bold;
     }
+
+    .account__switch,
+    .suggestion__account__follow{
+        color: rgb(0, 149, 246);
+    }
+
+    .suggestion__header_seeSuggestions{
+        white-space: nowrap;
+    }
+
+    /* 'Suggestions For You' element */
+    .suggestion{
+        margin-top: 52px;
+        width: 293px;
+        height: auto;
+    }
+
+    .suggestion__account__picture{
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-left: 3px;
+    }
+
+    .suggestion__header{
+        margin-bottom: 16px;
+        display: grid;
+        grid-template-columns: 1fr 36.913px;
+    }
+
+    .suggestion__header__forYou{
+        color: rgb(142, 142, 142);
+        font-weight: bold;
+    }
+
+    /* Suggestions */
+    .suggestion__account{
+        margin-bottom: 15px;
+        display: grid;
+        grid-template-columns: 32px 1fr 36.913px;
+        align-items: center;
+    }
+
+    .suggestion__account__user__fullname{
+        font-size: 1.2rem;
+        color: rgb(142, 142, 142);
+        margin-top: 2.2px;
+    }
+
 
 }
