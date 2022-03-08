@@ -14,15 +14,14 @@ let btnsNextPost = document.querySelectorAll('.btnNextPost');
 let btnsPreviusPost = document.querySelectorAll('.btnPreviusPost');
 
 for(let btnNextPost of btnsNextPost){
-    btnNextPost.addEventListener('click', nextPost);
+    btnNextPost.addEventListener('click', (e) => nextPreviusPost(e, true)); // true - next post  |  false - previus post 
 }
 
 for(let btnPreviusPost of btnsPreviusPost){
-    btnPreviusPost.addEventListener('click', previusPost);
+    btnPreviusPost.addEventListener('click', (e) => nextPreviusPost(e, false));
 }
 
-
-function nextPost(element){
+function nextPreviusPost(element, change){
     let postContent = element.path[2].children; //Get the parent element
     let postNav;
 
@@ -32,20 +31,7 @@ function nextPost(element){
         }
     }
 
-    changePost(postNav, postContent, true);
-}
-
-function previusPost(element){
-    let postContent = element.path[2].children; //Get the parent element
-    let postNav;
-
-    for(elementChild of postContent){
-        if(elementChild.classList.contains('post__content__pictures__nav')){
-            postNav = elementChild;
-        }
-    }
-
-    changePost(postNav, postContent, false);
+    changePost(postNav, postContent, change);
 }
 
 function changePost(post, postContent, change){ // Change = true - next post  |  Change = false - previus post 
