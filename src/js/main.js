@@ -24,16 +24,16 @@ function initTagsOnPosts(){
         for(let i = 0 ; i < pictureContentChildren.length ; i++){
             if(pictureContentChildren[i].classList.contains('btnSeeTagsOnPost')){
                 let btnSeeTagsOnPost = pictureContentChildren[i];
-                btnSeeTagsOnPost.addEventListener('mousedown', () => mousedown(btnSeeTagsOnPost));
-                btnSeeTagsOnPost.addEventListener('mouseup', () => mouseup(btnSeeTagsOnPost));
+                let iconBtnSeeTagsOnPost = btnSeeTagsOnPost.children[0];
+                btnSeeTagsOnPost.addEventListener('mousedown', () => mousedown(iconBtnSeeTagsOnPost));
+                btnSeeTagsOnPost.addEventListener('mouseup', () => mouseup(iconBtnSeeTagsOnPost));
             }
         }
     }
 }
 
-function mouseup(btnSeeTagsOnPost){ btnSeeTagsOnPost.children[0].classList.remove('mousedown'); }
-
-function mousedown(btnSeeTagsOnPost){ btnSeeTagsOnPost.children[0].classList.add('mousedown'); }
+function mouseup(iconBtnSeeTagsOnPost){ removeClass(iconBtnSeeTagsOnPost, 'mousedown'); }
+function mousedown(iconBtnSeeTagsOnPost){ addClass(iconBtnSeeTagsOnPost, 'mousedown'); }
 
 function showTagsOnPicture(pictureContent){
     let pictureContentChildren = pictureContent.children;
