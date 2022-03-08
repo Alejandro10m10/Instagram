@@ -10,11 +10,17 @@ function showInstagramPictures(){
 }
 
 /* Post carousel */
-btnsNextPost = document.querySelectorAll('.btnNextPost');
+let btnsNextPost = document.querySelectorAll('.btnNextPost');
+let btnsPreviusPost = document.querySelectorAll('.btnPreviusPost');
 
-for(btnNextPost of btnsNextPost){
+for(let btnNextPost of btnsNextPost){
     btnNextPost.addEventListener('click', nextPost);
 }
+
+for(let btnPreviusPost of btnsPreviusPost){
+    btnPreviusPost.addEventListener('click', previusPost);
+}
+
 
 function nextPost(element){
     let postContent = element.path[2].children; //Get the parent element
@@ -26,21 +32,40 @@ function nextPost(element){
         }
     }
 
-    changePost(postNav, postContent);
+    changePost(postNav, postContent, true);
 }
 
-function changePost(post, postContent){
-    let picturesInPost = post.children;
-    let picsNumberInPost = picturesInPost.length;
-    let currentPic, nextPic;
-    let picPosition;
+function previusPost(element){
+    let postContent = element.path[2].children; //Get the parent element
+    let postNav;
+
+    for(elementChild of postContent){
+        if(elementChild.classList.contains('post__content__pictures__nav')){
+            postNav = elementChild;
+        }
+    }
+
+    changePost(postNav, postContent, false);
+}
+
+function changePost(post, postContent, change){ // Change = true - next post  |  Change = false - previus post 
+    let picturesInPost = post.children,
+        picsNumberInPost = picturesInPost.length,
+        currentPic, nextPic,
+        picPosition;
 
     for(let i = 0 ; i < picsNumberInPost ; i++){
         if(picturesInPost[i].classList.contains('currentPicture')){
             currentPic = picturesInPost[i];
-            picPosition = i + 2;
-            if((i + 1) < picsNumberInPost ) {
-                nextPic = picturesInPost[i + 1];
+            
+            if((i + 1) <= picsNumberInPost ) {
+                if(change){
+                    nextPic = picturesInPost[i + 1];
+                    picPosition = i + 2;
+                } else{
+                    nextPic = picturesInPost[i - 1];
+                    picPosition = i;
+                }
             } else{
                 return;
             }
@@ -48,30 +73,28 @@ function changePost(post, postContent){
     }
 
     showNextPreviusButton(postContent, picPosition, picsNumberInPost);
-
     removeAddClass(currentPic, 'currentPicture', 'no-display');
     removeAddClass(nextPic, 'no-display', 'currentPicture');
+
 }
 
 function showNextPreviusButton(postContent, picPosition, picsNumberInPost){
-    let btnPreviusPost;
-    let btnNextPost;
+
+    if(picPosition === 0) return;
+
+    let btnPreviusPost, btnNextPost;
 
     for(elementChild of postContent){
-        if(elementChild.classList.contains('btnPreviusPost')){
-            btnPreviusPost = elementChild;
-        }
-        if(elementChild.classList.contains('btnNextPost')){
-            btnNextPost = elementChild;
-        }
+        if(elementChild.classList.contains('btnPreviusPost')) btnPreviusPost = elementChild;
+        if(elementChild.classList.contains('btnNextPost')) btnNextPost = elementChild;
     }
 
+    if(picPosition === 1) addClass(btnPreviusPost, 'no-display');
     if(picPosition > 1){
         removeClass(btnPreviusPost, 'no-display');
+        removeClass(btnNextPost, 'no-display');
     }
-    if(picPosition >= picsNumberInPost){
-        addClass(btnNextPost, 'no-display');
-    }
+    if(picPosition >= picsNumberInPost) addClass(btnNextPost, 'no-display');
 }
 
 function removeAddClass(element, classRemove, classAdd){
