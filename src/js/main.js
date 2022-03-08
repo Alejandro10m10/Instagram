@@ -1,6 +1,9 @@
 /* Show Tags on Posts */
 let tagsOnPosts = document.querySelectorAll('.tagOnPosts');
 
+/* Videos */
+let videos = document.querySelectorAll('.postVideo');
+
 init();
 
 function init(){
@@ -12,6 +15,40 @@ function showInstagramPictures(){
     let showPictures = new cDg('instagramPicture').view();
 }
 
+/* Videos */
+for(let video of videos){
+    video.addEventListener('click', () => pausePlayVideo(video) );
+
+    let videoContainer = video.parentElement;
+    let videoContainerChildren = videoContainer.children;
+
+    for(let i = 0; i < videoContainerChildren.length ; i++){
+        let videoElement = videoContainerChildren[i];
+        if(videoElement.classList.contains('btnVideoAudio')){
+            console.log(videoElement);
+        }
+    }
+}
+
+function pausePlayVideo(video){
+    let videoContainer = video.parentElement;
+    let videoContainerChildren = videoContainer.children;
+
+    for(let i = 0; i < videoContainerChildren.length ; i++){
+        let videoElement = videoContainerChildren[i];
+        if(videoElement.classList.contains('postVideo__controls')){
+            if(videoElement.classList.contains('no-display')){
+                removeClass(videoElement, 'no-display');
+                video.pause();
+            } else{
+                addClass(videoElement, 'no-display');
+                video.play();
+            }
+        }
+    }
+}
+
+
 /* Show Tags on Posts */
 function initTagsOnPosts(){
     for(let tagOnPost of tagsOnPosts){
@@ -19,7 +56,6 @@ function initTagsOnPosts(){
         setCursorOnPicturesTags(pictureContent);
     
         pictureContent.addEventListener('click', () => showTagsOnPicture(pictureContent));
-        
         let pictureContentChildren = pictureContent.children;
         for(let i = 0 ; i < pictureContentChildren.length ; i++){
             if(pictureContentChildren[i].classList.contains('btnSeeTagsOnPost')){
@@ -33,7 +69,7 @@ function initTagsOnPosts(){
 }
 
 function mouseup(iconBtnSeeTagsOnPost){ removeClass(iconBtnSeeTagsOnPost, 'mousedown'); }
-function mousedown(iconBtnSeeTagsOnPost){ addClass(iconBtnSeeTagsOnPost, 'mousedown'); }
+function mousedown(iconBtnSeeTagsOnPost){ addClass(iconBtnSeeTagsOnPost, 'mousedown');}
 
 function showTagsOnPicture(pictureContent){
     let pictureContentChildren = pictureContent.children;
