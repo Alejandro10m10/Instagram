@@ -1,8 +1,11 @@
+/* Show Tags on Posts */
+let tagsOnPosts = document.querySelectorAll('.tagOnPosts');
 
 init();
 
 function init(){
     /* showInstagramPictures(); uncomment this line until we have the API connected*/ 
+    initTagsOnPosts();
 }
 
 function showInstagramPictures(){
@@ -10,14 +13,27 @@ function showInstagramPictures(){
 }
 
 /* Show Tags on Posts */
-let tagsOnPosts = document.querySelectorAll('.tagOnPosts');
-
-for(let tagOnPost of tagsOnPosts){
-    let pictureContent = tagOnPost.parentElement;
-    setCursorOnPicturesTags(pictureContent);
-
-    pictureContent.addEventListener('click', () => showTagsOnPicture(pictureContent));
+function initTagsOnPosts(){
+    for(let tagOnPost of tagsOnPosts){
+        let pictureContent = tagOnPost.parentElement;
+        setCursorOnPicturesTags(pictureContent);
+    
+        pictureContent.addEventListener('click', () => showTagsOnPicture(pictureContent));
+        
+        let pictureContentChildren = pictureContent.children;
+        for(let i = 0 ; i < pictureContentChildren.length ; i++){
+            if(pictureContentChildren[i].classList.contains('btnSeeTagsOnPost')){
+                let btnSeeTagsOnPost = pictureContentChildren[i];
+                btnSeeTagsOnPost.addEventListener('mousedown', () => mousedown(btnSeeTagsOnPost));
+                btnSeeTagsOnPost.addEventListener('mouseup', () => mouseup(btnSeeTagsOnPost));
+            }
+        }
+    }
 }
+
+function mouseup(btnSeeTagsOnPost){ btnSeeTagsOnPost.children[0].classList.remove('mousedown'); }
+
+function mousedown(btnSeeTagsOnPost){ btnSeeTagsOnPost.children[0].classList.add('mousedown'); }
 
 function showTagsOnPicture(pictureContent){
     let pictureContentChildren = pictureContent.children;
