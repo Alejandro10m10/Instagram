@@ -611,6 +611,10 @@ body{
     width: 100%;
 }
 
+.post__withTags{
+    cursor: pointer;
+}
+
 .postVideo__controlls{
     position: absolute;
     width: 100%;

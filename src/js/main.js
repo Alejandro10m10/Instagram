@@ -9,6 +9,37 @@ function showInstagramPictures(){
     let showPictures = new cDg('instagramPicture').view();
 }
 
+/* Show Tags on Posts */
+let tagsOnPosts = document.querySelectorAll('.tagOnPosts');
+
+for(let tagOnPost of tagsOnPosts){
+    let pictureContent = tagOnPost.parentElement;
+    setCursorOnPicturesTags(pictureContent);
+
+    pictureContent.addEventListener('click', () => showTagsOnPicture(pictureContent));
+}
+
+function showTagsOnPicture(pictureContent){
+    let pictureContentChildren = pictureContent.children;
+    let tagOnPostsContent;
+
+    for(let i = 0 ; i < pictureContentChildren.length ; i++){
+        if(pictureContentChildren[i].classList.contains('tagOnPosts')){
+            tagOnPostsContent = pictureContentChildren[i];
+            if(tagOnPostsContent.classList.contains('no-display')){
+                removeClass(tagOnPostsContent, 'no-display');
+            } else{
+                addClass(tagOnPostsContent, 'no-display');
+            }
+        }
+    }
+}
+
+function setCursorOnPicturesTags(post){
+    post.classList.add('post__withTags');
+}
+
+
 /* Post carousel */
 let btnsNextPost = document.querySelectorAll('.btnNextPost');
 let btnsPreviusPost = document.querySelectorAll('.btnPreviusPost');
@@ -25,7 +56,7 @@ function nextPreviusPost(element, change){
     let postContent = element.path[2].children; //Get the parent element
     let postNav;
 
-    for(elementChild of postContent){
+    for(let elementChild of postContent){
         if(elementChild.classList.contains('post__content__pictures__nav')){
             postNav = elementChild;
         }
@@ -70,7 +101,7 @@ function showNextPreviusButton(postContent, picPosition, picsNumberInPost){
 
     let btnPreviusPost, btnNextPost;
 
-    for(elementChild of postContent){
+    for(let elementChild of postContent){
         if(elementChild.classList.contains('btnPreviusPost')) btnPreviusPost = elementChild;
         if(elementChild.classList.contains('btnNextPost')) btnNextPost = elementChild;
     }
