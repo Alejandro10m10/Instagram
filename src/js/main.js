@@ -23,10 +23,26 @@ for(let video of videos){
     let videoContainerChildren = videoContainer.children;
 
     for(let i = 0; i < videoContainerChildren.length ; i++){
-        let videoElement = videoContainerChildren[i];
-        if(videoElement.classList.contains('btnVideoAudio')){
-            console.log(videoElement);
+        if(videoContainerChildren[i].classList.contains('btnVideoAudio')){
+            let btnVideoAudio = videoContainerChildren[i];
+            console.log(btnVideoAudio);
+            btnVideoAudio.addEventListener('click', () => pausePlayAudio(video, btnVideoAudio));
         }
+    }
+}
+
+function pausePlayAudio(video, btnVideoAudio){
+    let iconAudioPlaying = btnVideoAudio.children[0];
+    let iconAudioMuted = btnVideoAudio.children[1];
+
+    if(iconAudioMuted.classList.contains('no-display')){
+        removeClass(iconAudioMuted, 'no-display');
+        addClass(iconAudioPlaying, 'no-display');
+        video.muted = true;
+    } else{
+        addClass(iconAudioMuted, 'no-display');
+        removeClass(iconAudioPlaying, 'no-display');
+        video.muted = false;
     }
 }
 

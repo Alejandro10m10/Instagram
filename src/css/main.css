@@ -492,6 +492,7 @@ body{
 }
 
 .btnVideoAudio{
+    z-index: 2;
     right: 2.9%;
 }
 
@@ -564,9 +565,9 @@ body{
 }
 
 
-
 /* Tags */
 .tagOnPosts{
+    z-index: 2;
     display: grid;
     place-items: center;
     width: fit-content;
