@@ -111,7 +111,8 @@ header{
 }
 
 .no-display,
-.post__content__pictures .no-display{
+.post__content__pictures .no-display,
+.nav__left__item__messenger svg.no-display{
     display: none;
 }
 

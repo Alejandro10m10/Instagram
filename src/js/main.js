@@ -15,6 +15,41 @@ function showInstagramPictures(){
     let showPictures = new cDg('instagramPicture').view();
 }
 
+/* Navigator */
+let btnHome = document.querySelector('#btnHome');
+
+btnHome.addEventListener('click', () => showHome(btnHome) );
+
+function showHome(btn){
+    let pathSvgIcon = btn.children[0].children[0];
+
+    let iconBtnHome = { 'd': '', 'fill': '', 'stroke': '', 'stroke-linejoin': '', 'stroke-width': '', };
+
+    if(btn.classList.contains('nav__option-selected')){
+        iconBtnHome['d'] = 'M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z';
+        iconBtnHome['fill'] = 'none';
+        iconBtnHome['stroke'] = 'black';
+        iconBtnHome['stroke-linejoin'] = 'round';
+        iconBtnHome['stroke-width'] = '2';
+
+        removeClass(btn, 'nav__option-selected');
+    } else{
+
+        iconBtnHome['d'] = 'M 22 23 h -6.001 a 1 1 0 0 1 -1 -1 v -5.455 a 2.997 2.997 0 1 0 -5.993 0 V 22 a 1 1 0 0 1 -1 1 H 2 a 1 1 0 0 1 -1 -1 V 11.543 a 1.002 1.002 0 0 1 0.31 -0.724 l 10 -9.543 a 1.001 1.001 0 0 1 1.38 0 l 10 9.543 a 1.002 1.002 0 0 1 0.31 0.724 V 22 a 1 1 0 0 1 -1 1 Z"';
+        iconBtnHome['fill'] = 'black';
+        iconBtnHome['stroke'] = 'none';
+        iconBtnHome['stroke-linejoin'] = 'none';
+        iconBtnHome['stroke-width'] = 'none';
+        addClass(btn, 'nav__option-selected');
+    }
+
+    pathSvgIcon.setAttribute('d', iconBtnHome['d']);
+    pathSvgIcon.setAttribute('fill', iconBtnHome['fill']);
+    pathSvgIcon.setAttribute('stroke', iconBtnHome['stroke']);
+    pathSvgIcon.setAttribute('stroke-linejoin', iconBtnHome['stroke-linejoin']);
+    pathSvgIcon.setAttribute('stroke-width', iconBtnHome['stroke-width']);
+}
+
 /* Videos */
 for(let video of videos){
     video.addEventListener('click', () => pausePlayVideo(video) );
