@@ -25,7 +25,6 @@ for(let video of videos){
     for(let i = 0; i < videoContainerChildren.length ; i++){
         if(videoContainerChildren[i].classList.contains('btnVideoAudio')){
             let btnVideoAudio = videoContainerChildren[i];
-            console.log(btnVideoAudio);
             btnVideoAudio.addEventListener('click', () => pausePlayAudio(video, btnVideoAudio));
         }
     }
@@ -63,6 +62,37 @@ function pausePlayVideo(video){
         }
     }
 }
+
+/* Play the video when it is displayed on the screen when the user scrolls the page */
+window.onscroll = function () {
+    for(let video of videos) observer.observe(video); // Observar los videos
+};
+
+// Crear el observador (Intersection Observer API). En la función anónima se recibe una lista de entradas
+observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { // Recorrer las entradas recibidas
+        let currentVideo = entry.target; // entry.target es el elemento que se está observando
+        let videoContainer = currentVideo.parentElement;
+        let playVideo = true;
+        let videoContainerChildren = videoContainer.children;
+        
+        for(let videoContainerChild of videoContainerChildren){            
+            if(videoContainerChild.classList.contains('postVideo__controls')){
+                (videoContainerChild.classList.contains('no-display'))
+                    ? playVideo = true
+                    : playVideo = false;
+            }   
+        }
+
+        if (entry.intersectionRatio > 0) { // Está visible en el viewport
+            if(playVideo) currentVideo.play();
+            observer.unobserve(entry.target); // Dejar de observar
+        } else{
+            if(playVideo) currentVideo.load();
+        }
+    });
+});
+
 
 
 /* Show Tags on Posts */
