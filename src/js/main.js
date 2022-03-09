@@ -17,30 +17,44 @@ function showInstagramPictures(){
 
 /* Navigator */
 let btnHome = document.querySelector('#btnHome');
+let btnHomeIcon = btnHome.children[0];
 
-btnHome.addEventListener('click', () => showHome(btnHome) );
+btnHome.addEventListener('click', showHome );
+btnHome.addEventListener('mousedown', () => mousedown(btnHomeIcon));
+btnHome.addEventListener('mouseup', () => mouseup(btnHomeIcon));
 
-function showHome(btn){
-    let pathSvgIcon = btn.children[0].children[0];
+let btnMessenger = document.querySelector('#btnMessenger');
+btnMessenger.addEventListener('click', showMessenger );
+
+function showHome(){
+    console.log('Ir a Home');
+}
+
+function showMessenger(){
+    btnHomeSelected(true);
+}
+
+function btnHomeSelected(selected){
+    let pathSvgIcon = btnHomeIcon.children[0];
 
     let iconBtnHome = { 'd': '', 'fill': '', 'stroke': '', 'stroke-linejoin': '', 'stroke-width': '', };
 
-    if(btn.classList.contains('nav__option-selected')){
+    if(selected){
+        console.log('si');
         iconBtnHome['d'] = 'M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z';
         iconBtnHome['fill'] = 'none';
         iconBtnHome['stroke'] = 'black';
         iconBtnHome['stroke-linejoin'] = 'round';
         iconBtnHome['stroke-width'] = '2';
-
-        removeClass(btn, 'nav__option-selected');
+        removeClass(btnHome, 'nav__option-selected');
     } else{
-
-        iconBtnHome['d'] = 'M 22 23 h -6.001 a 1 1 0 0 1 -1 -1 v -5.455 a 2.997 2.997 0 1 0 -5.993 0 V 22 a 1 1 0 0 1 -1 1 H 2 a 1 1 0 0 1 -1 -1 V 11.543 a 1.002 1.002 0 0 1 0.31 -0.724 l 10 -9.543 a 1.001 1.001 0 0 1 1.38 0 l 10 9.543 a 1.002 1.002 0 0 1 0.31 0.724 V 22 a 1 1 0 0 1 -1 1 Z"';
+        console.log('no');
+        iconBtnHome['d'] = 'M 22 23 h -6.001 a 1 1 0 0 1 -1 -1 v -5.455 a 2.997 2.997 0 1 0 -5.993 0 V 22 a 1 1 0 0 1 -1 1 H 2 a 1 1 0 0 1 -1 -1 V 11.543 a 1.002 1.002 0 0 1 0.31 -0.724 l 10 -9.543 a 1.001 1.001 0 0 1 1.38 0 l 10 9.543 a 1.002 1.002 0 0 1 0.31 0.724 V 22 a 1 1 0 0 1 -1 1 Z';
         iconBtnHome['fill'] = 'black';
         iconBtnHome['stroke'] = 'none';
         iconBtnHome['stroke-linejoin'] = 'none';
         iconBtnHome['stroke-width'] = 'none';
-        addClass(btn, 'nav__option-selected');
+        addClass(btnHome, 'nav__option-selected');
     }
 
     pathSvgIcon.setAttribute('d', iconBtnHome['d']);
