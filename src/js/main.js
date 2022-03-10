@@ -16,6 +16,8 @@ function showInstagramPictures(){
 }
 
 /* Navigator */
+
+// Home button
 let btnHome = document.querySelector('#btnHome'),
     iconBtnHomeSelected = document.querySelector('#iconBtnHomeSelected'),
     iconBtnHomeDeselected = document.querySelector('#iconBtnHomeDeselected');
@@ -24,8 +26,14 @@ btnHome.addEventListener('click', showHome );
 addEventMouseDownUp(btnHome, iconBtnHomeSelected);
 addEventMouseDownUp(btnHome, iconBtnHomeDeselected);
 
-let btnMessenger = document.querySelector('#btnMessenger');
+// Messenger button
+let btnMessenger = document.querySelector('#btnMessenger'),
+    iconBtnMessengerSelected = document.querySelector('#iconBtnMessengerSelected'),
+    iconBtnMessengerDeselected = document.querySelector('#iconBtnMessengerDeselected');
+    
 btnMessenger.addEventListener('click', showMessenger );
+addEventMouseDownUp(btnMessenger, iconBtnMessengerSelected);
+addEventMouseDownUp(btnMessenger, iconBtnMessengerDeselected);
 
 function addEventMouseDownUp(element, icon){
     element.addEventListener('mousedown', () => mousedown(icon));
@@ -34,19 +42,29 @@ function addEventMouseDownUp(element, icon){
 
 function showHome(){
     btnHomeSelected(true);
+    btnMessengerSelected(false);
 }
 
 function showMessenger(){
     btnHomeSelected(false);
+    btnMessengerSelected(true);
+}
+
+function btnMessengerSelected(selected){
+    displayHideElements(selected, iconBtnMessengerSelected, iconBtnMessengerDeselected);
 }
 
 function btnHomeSelected(selected){
-    if(selected){
-        removeClass(iconBtnHomeSelected, 'no-display');
-        addClass(iconBtnHomeDeselected, 'no-display');
+    displayHideElements(selected, iconBtnHomeSelected, iconBtnHomeDeselected);
+}
+
+function displayHideElements(option, showElement, hideElement){
+    if(option){
+        removeClass(showElement, 'no-display');
+        addClass(hideElement, 'no-display');
     } else{
-        addClass(iconBtnHomeSelected, 'no-display');
-        removeClass(iconBtnHomeDeselected, 'no-display');
+        addClass(showElement, 'no-display');
+        removeClass(hideElement, 'no-display');
     }
 }
 
