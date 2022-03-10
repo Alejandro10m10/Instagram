@@ -62,8 +62,8 @@ let btnNewPost = document.querySelector('#btnNewPost'),
     createNewPostContent = document.querySelector('.create-post'),
     btnCloseCreatePost = document.querySelector('#btnCloseCreatePost'),
     closeCreatePostBackground = document.querySelector('.create-post__background'),
-    body = document.querySelector('body');
-btnNewPost.addEventListener('click', ()=> showCreateNewPost(true) );
+    body = document.querySelector('body');;
+btnNewPost.addEventListener('click', showUserMenu );
 btnCloseCreatePost.addEventListener('click', ()=> showCreateNewPost(false) );
 closeCreatePostBackground.addEventListener('click', ()=> showCreateNewPost(false) );
 
@@ -111,16 +111,22 @@ function showUserMenu(){
     btnFindPeopleSelected(false);
     btnActivityFeedSelected(false);
     btnUserMenuSelected(true);
+
+    showCreateNewPost(true);
 }
 
+let scrrollOntop;
+let doc = document.documentElement;
 function showCreateNewPost(selected){
     if(selected){
+        scrrollOntop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
         removeClass(createNewPostContent, 'no-display');
         addClass(body, 'no-show-scroll');
     } else{
         addClass(createNewPostContent, 'no-display');
         removeClass(body, 'no-show-scroll');
     }
+    doc.scrollTop = scrrollOntop;
 }
 
 function btnUserMenuSelected(selected){
