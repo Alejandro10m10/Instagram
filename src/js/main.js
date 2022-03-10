@@ -35,6 +35,16 @@ btnMessenger.addEventListener('click', showMessenger );
 addEventMouseDownUp(btnMessenger, iconBtnMessengerSelected);
 addEventMouseDownUp(btnMessenger, iconBtnMessengerDeselected);
 
+// Find People button
+let btnFindPeople = document.querySelector('#btnFindPeople'),
+    iconBtnFindPeopleSelected = document.querySelector('#iconBtnFindPeopleSelected'),
+    iconBtnFindPeopleDeselected = document.querySelector('#iconBtnFindPeopleDeselected');
+    
+btnFindPeople.addEventListener('click', showFindPeople );
+addEventMouseDownUp(btnFindPeople, iconBtnFindPeopleSelected);
+addEventMouseDownUp(btnFindPeople, iconBtnFindPeopleDeselected);
+
+
 function addEventMouseDownUp(element, icon){
     element.addEventListener('mousedown', () => mousedown(icon));
     element.addEventListener('mouseup', () => mouseup(icon));
@@ -43,11 +53,23 @@ function addEventMouseDownUp(element, icon){
 function showHome(){
     btnHomeSelected(true);
     btnMessengerSelected(false);
+    btnFindPeopleSelected(false);
 }
 
 function showMessenger(){
     btnHomeSelected(false);
     btnMessengerSelected(true);
+    btnFindPeopleSelected(false);
+}
+
+function showFindPeople(){
+    btnHomeSelected(false);
+    btnMessengerSelected(false);
+    btnFindPeopleSelected(true);
+}
+
+function btnFindPeopleSelected(selected){
+    displayHideElements(selected, iconBtnFindPeopleSelected, iconBtnFindPeopleDeselected);
 }
 
 function btnMessengerSelected(selected){

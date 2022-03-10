@@ -112,8 +112,7 @@ header{
 
 .no-display,
 .post__content__pictures .no-display,
-.nav__option-selected svg.no-display,
-.nav__left__item__messenger svg.no-display{
+.nav__left__item a svg.no-display{
     display: none;
 }
 
