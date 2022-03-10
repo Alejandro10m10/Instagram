@@ -57,6 +57,14 @@ addEventMouseDownUp(btnActivityFeed, iconBtnActivityFeedDeselected);
 let btnUserMenu = document.querySelector('#btnUserMenu');
 btnUserMenu.addEventListener('click', showUserMenu );
 
+/* Create new post content */
+let btnNewPost = document.querySelector('#btnNewPost'),
+    createNewPostContent = document.querySelector('.create-post'),
+    btnCloseCreatePost = document.querySelector('#btnCloseCreatePost'),
+    closeCreatePostBackground = document.querySelector('.create-post__background');
+btnNewPost.addEventListener('click', ()=> showCreateNewPost(true) );
+btnCloseCreatePost.addEventListener('click', ()=> showCreateNewPost(false) );
+closeCreatePostBackground.addEventListener('click', ()=> showCreateNewPost(false) );
 
 
 function addEventMouseDownUp(element, icon){
@@ -102,6 +110,14 @@ function showUserMenu(){
     btnFindPeopleSelected(false);
     btnActivityFeedSelected(false);
     btnUserMenuSelected(true);
+}
+
+function showCreateNewPost(selected){
+    if(selected){
+        removeClass(createNewPostContent, 'no-display');
+    } else{
+        addClass(createNewPostContent, 'no-display');
+    }
 }
 
 function btnUserMenuSelected(selected){
