@@ -145,7 +145,8 @@ header{
 
 .no-display,
 .post__content__pictures .no-display,
-.nav__left__item a svg.no-display{
+.nav__left__item a svg.no-display,
+body .no-display{
     display: none;
 }
 
@@ -695,6 +696,99 @@ body{
 .nav .no-display,
 .nav__center__search span.no-display,
 .suggestions, footer{
+    display: none;
+}
+
+/* Create New Post */
+.create-post{
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.create-post__background{
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.create-post__content{
+    z-index: 3;
+    background-color: white;
+    width: 348px;
+    height: 391px;
+    border-radius: 14px;
+}
+
+#btnCloseCreatePost{
+    z-index: 3;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#btnSelectFile,
+#btnCloseCreatePost{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#btnSelectFile{
+    width: fit-content;
+    padding: 5px 9px;
+    margin: 1px;
+    background-color: rgb(0, 149, 246);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 4px;
+    height: 30px;
+}
+
+
+.create-post__content__title{
+    font-size: 1.5rem;
+    color: rgb(38, 38, 38);
+    text-align: center;
+    font-weight: 600;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid #dfdfdf;
+    padding-top: 5px;
+}
+
+.create-post__content__dragphoto{
+    height: 348px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-post__content__dragphoto__title{
+    font-size: 2.1rem;
+    font-weight: 300;
+    color: rgba(38, 38, 38, 0.534);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    top: -6px;
+}
+
+::-webkit-scrollbar {
     display: none;
 }
 
