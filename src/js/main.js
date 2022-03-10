@@ -61,7 +61,8 @@ btnUserMenu.addEventListener('click', showUserMenu );
 let btnNewPost = document.querySelector('#btnNewPost'),
     createNewPostContent = document.querySelector('.create-post'),
     btnCloseCreatePost = document.querySelector('#btnCloseCreatePost'),
-    closeCreatePostBackground = document.querySelector('.create-post__background');
+    closeCreatePostBackground = document.querySelector('.create-post__background'),
+    body = document.querySelector('body');
 btnNewPost.addEventListener('click', ()=> showCreateNewPost(true) );
 btnCloseCreatePost.addEventListener('click', ()=> showCreateNewPost(false) );
 closeCreatePostBackground.addEventListener('click', ()=> showCreateNewPost(false) );
@@ -115,8 +116,10 @@ function showUserMenu(){
 function showCreateNewPost(selected){
     if(selected){
         removeClass(createNewPostContent, 'no-display');
+        addClass(body, 'no-show-scroll');
     } else{
         addClass(createNewPostContent, 'no-display');
+        removeClass(body, 'no-show-scroll');
     }
 }
 
