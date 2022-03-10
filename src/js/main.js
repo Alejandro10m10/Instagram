@@ -16,52 +16,38 @@ function showInstagramPictures(){
 }
 
 /* Navigator */
-let btnHome = document.querySelector('#btnHome');
-let btnHomeIcon = btnHome.children[0];
+let btnHome = document.querySelector('#btnHome'),
+    iconBtnHomeSelected = document.querySelector('#iconBtnHomeSelected'),
+    iconBtnHomeDeselected = document.querySelector('#iconBtnHomeDeselected');
 
 btnHome.addEventListener('click', showHome );
-btnHome.addEventListener('mousedown', () => mousedown(btnHomeIcon));
-btnHome.addEventListener('mouseup', () => mouseup(btnHomeIcon));
+addEventMouseDownUp(btnHome, iconBtnHomeSelected);
+addEventMouseDownUp(btnHome, iconBtnHomeDeselected);
 
 let btnMessenger = document.querySelector('#btnMessenger');
 btnMessenger.addEventListener('click', showMessenger );
 
-function showHome(){
-    console.log('Ir a Home');
+function addEventMouseDownUp(element, icon){
+    element.addEventListener('mousedown', () => mousedown(icon));
+    element.addEventListener('mouseup', () => mouseup(icon));
 }
 
-function showMessenger(){
+function showHome(){
     btnHomeSelected(true);
 }
 
+function showMessenger(){
+    btnHomeSelected(false);
+}
+
 function btnHomeSelected(selected){
-    let pathSvgIcon = btnHomeIcon.children[0];
-
-    let iconBtnHome = { 'd': '', 'fill': '', 'stroke': '', 'stroke-linejoin': '', 'stroke-width': '', };
-
     if(selected){
-        console.log('si');
-        iconBtnHome['d'] = 'M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z';
-        iconBtnHome['fill'] = 'none';
-        iconBtnHome['stroke'] = 'black';
-        iconBtnHome['stroke-linejoin'] = 'round';
-        iconBtnHome['stroke-width'] = '2';
-        removeClass(btnHome, 'nav__option-selected');
+        removeClass(iconBtnHomeSelected, 'no-display');
+        addClass(iconBtnHomeDeselected, 'no-display');
     } else{
-        console.log('no');
-        iconBtnHome['d'] = 'M 22 23 h -6.001 a 1 1 0 0 1 -1 -1 v -5.455 a 2.997 2.997 0 1 0 -5.993 0 V 22 a 1 1 0 0 1 -1 1 H 2 a 1 1 0 0 1 -1 -1 V 11.543 a 1.002 1.002 0 0 1 0.31 -0.724 l 10 -9.543 a 1.001 1.001 0 0 1 1.38 0 l 10 9.543 a 1.002 1.002 0 0 1 0.31 0.724 V 22 a 1 1 0 0 1 -1 1 Z';
-        iconBtnHome['fill'] = 'black';
-        iconBtnHome['stroke'] = 'none';
-        iconBtnHome['stroke-linejoin'] = 'none';
-        iconBtnHome['stroke-width'] = 'none';
-        addClass(btnHome, 'nav__option-selected');
+        addClass(iconBtnHomeSelected, 'no-display');
+        removeClass(iconBtnHomeDeselected, 'no-display');
     }
-
-    pathSvgIcon.setAttribute('d', iconBtnHome['d']);
-    pathSvgIcon.setAttribute('fill', iconBtnHome['fill']);
-    pathSvgIcon.setAttribute('stroke', iconBtnHome['stroke']);
-    pathSvgIcon.setAttribute('stroke-linejoin', iconBtnHome['stroke-linejoin']);
-    pathSvgIcon.setAttribute('stroke-width', iconBtnHome['stroke-width']);
 }
 
 /* Videos */
@@ -156,15 +142,14 @@ function initTagsOnPosts(){
             if(pictureContentChildren[i].classList.contains('btnSeeTagsOnPost')){
                 let btnSeeTagsOnPost = pictureContentChildren[i];
                 let iconBtnSeeTagsOnPost = btnSeeTagsOnPost.children[0];
-                btnSeeTagsOnPost.addEventListener('mousedown', () => mousedown(iconBtnSeeTagsOnPost));
-                btnSeeTagsOnPost.addEventListener('mouseup', () => mouseup(iconBtnSeeTagsOnPost));
+                addEventMouseDownUp(btnSeeTagsOnPost, iconBtnSeeTagsOnPost);
             }
         }
     }
 }
 
-function mouseup(iconBtnSeeTagsOnPost){ removeClass(iconBtnSeeTagsOnPost, 'mousedown'); }
-function mousedown(iconBtnSeeTagsOnPost){ addClass(iconBtnSeeTagsOnPost, 'mousedown');}
+function mouseup(element){ removeClass(element, 'mousedown'); }
+function mousedown(element){ addClass(element, 'mousedown');}
 
 function showTagsOnPicture(pictureContent){
     let pictureContentChildren = pictureContent.children;
