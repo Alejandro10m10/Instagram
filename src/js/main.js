@@ -44,6 +44,20 @@ btnFindPeople.addEventListener('click', showFindPeople );
 addEventMouseDownUp(btnFindPeople, iconBtnFindPeopleSelected);
 addEventMouseDownUp(btnFindPeople, iconBtnFindPeopleDeselected);
 
+// Activity Feed button
+let btnActivityFeed = document.querySelector('#btnActivityFeed'),
+    iconBtnActivityFeedSelected = document.querySelector('#iconBtnActivityFeedSelected'),
+    iconBtnActivityFeedDeselected = document.querySelector('#iconBtnActivityFeedDeselected');
+    
+btnActivityFeed.addEventListener('click', showActivityFeed );
+addEventMouseDownUp(btnActivityFeed, iconBtnActivityFeedSelected);
+addEventMouseDownUp(btnActivityFeed, iconBtnActivityFeedDeselected);
+
+// User menu button
+let btnUserMenu = document.querySelector('#btnUserMenu');
+btnUserMenu.addEventListener('click', showUserMenu );
+
+
 
 function addEventMouseDownUp(element, icon){
     element.addEventListener('mousedown', () => mousedown(icon));
@@ -54,18 +68,50 @@ function showHome(){
     btnHomeSelected(true);
     btnMessengerSelected(false);
     btnFindPeopleSelected(false);
+    btnActivityFeedSelected(false);
+    btnUserMenuSelected(false);
 }
 
 function showMessenger(){
     btnHomeSelected(false);
     btnMessengerSelected(true);
     btnFindPeopleSelected(false);
+    btnActivityFeedSelected(false);
+    btnUserMenuSelected(false);
 }
 
 function showFindPeople(){
     btnHomeSelected(false);
     btnMessengerSelected(false);
     btnFindPeopleSelected(true);
+    btnActivityFeedSelected(false);
+    btnUserMenuSelected(false);
+}
+
+function showActivityFeed(){
+    btnHomeSelected(false);
+    btnMessengerSelected(false);
+    btnFindPeopleSelected(false);
+    btnActivityFeedSelected(true);
+    btnUserMenuSelected(false);
+}
+
+function showUserMenu(){
+    btnHomeSelected(false);
+    btnMessengerSelected(false);
+    btnFindPeopleSelected(false);
+    btnActivityFeedSelected(false);
+    btnUserMenuSelected(true);
+}
+
+function btnUserMenuSelected(selected){
+    (selected)
+        ? removeAddClass(btnUserMenu, 'img__histories__no-outline', 'img__histories__outline')
+        : removeAddClass(btnUserMenu, 'img__histories__outline', 'img__histories__no-outline');
+}
+
+function btnActivityFeedSelected(selected){
+    displayHideElements(selected, iconBtnActivityFeedSelected, iconBtnActivityFeedDeselected);
 }
 
 function btnFindPeopleSelected(selected){

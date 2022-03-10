@@ -102,6 +102,39 @@ header{
     cursor: pointer;
 }
 
+.nav__left__item:last-child{
+    position: relative;
+}
+
+#btnUserMenu{
+    position: absolute;
+    top: -16.5px;
+    right: -14.5px;
+    display: grid;
+    place-content: center;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+}
+
+.img__histories__outline{
+    background-color: rgba(38,38,38,1);
+}
+
+.img__histories__no-outline{
+    background-color: transparent;
+}
+
+.img__user-avatar-picture{
+    display: grid;
+    place-content: center;
+    width: 27px;
+    height: 27px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
 .histories__container{
     padding-top: 10px;
     position: relative;
