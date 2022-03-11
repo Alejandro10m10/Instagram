@@ -73,6 +73,10 @@ header{
     gap: 22px;
 }
 
+.nav__left__item div{
+    cursor: pointer;
+}
+
 .nav__left__item__messenger{
     position: relative;
 }
@@ -145,7 +149,7 @@ header{
 
 .no-display,
 .post__content__pictures .no-display,
-.nav__left__item a svg.no-display,
+.nav__left__item svg.no-display,
 body .no-display{
     display: none;
 }
@@ -492,7 +496,8 @@ body{
     margin: 15px 0;
 }
 
-.post__footer__description__user__tagfriend{
+.post__footer__description__user__tagfriend, 
+.activity-feed__tooltip__data__action__tag{
     color: rgb(0, 55, 107);
     cursor: pointer;
 }
@@ -791,6 +796,140 @@ body{
 
 .no-show-scroll{
     overflow-y: hidden;
+}
+
+/* Activity Feed */
+.activity-feed{
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.activity-feed__background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.activity-feed__content{
+    position: absolute;
+    right: 30px;
+    top: 57px;
+    overflow-y: scroll;
+    z-index: 1;
+    width: 500px;
+    background-color: white;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.0975);
+    border-radius: 5px;
+}
+
+.activity-feed__tooltip{
+    display: grid;
+    grid-auto-rows: auto;
+    height: 362px;
+}
+
+.activity-feed__tooltip__title{
+    font-size: 1.4rem;
+    color: rgb(38, 38, 38);
+    padding: 4px;
+    margin: 8px 0 0 8px;
+}
+
+
+.activity-feed__tooltip__data{
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr 0.3fr;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.activity-feed__tooltip__data:nth-child(2){
+    padding-top: 6px;
+}
+
+.activity-feed__tooltip__data__img{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.activity-feed__tooltip__data__info{
+    margin: 0 12px;
+    font-size: 1.39rem;
+}
+
+.activity-feed__tooltip__data__user{
+    font-weight: bold;
+}
+
+.activity-feed__tooltip__data__time{
+    color: rgb(142, 142, 142);
+}
+
+.activity-feed__tooltip__data__content{
+    display: grid;
+    justify-self: end;
+    align-items: center;
+}
+
+.activity-feed__tooltip__data__button{
+    width: fit-content;
+    height: 30px;
+    outline: none;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.activity-feed__tooltip__data__follow-button{
+    background-color: rgb(0, 149, 246);
+    border: 1px solid  rgb(0, 149, 246);
+    color: white;
+}
+
+.activity-feed__tooltip__data__following-button{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid  rgb(219, 219, 219);
+}
+
+.activity-feed__tooltip__data__picture{
+    width: 40px;
+    height: 40px;
+}
+
+/* Tooltip */
+.activity-feed__tooltip-arrow::after{
+    z-index: 3;
+    position: absolute;
+    content: "";
+    top: 43px;
+    right: 14%;
+    width: 15px;
+    height: 15px;
+    background: white;
+    transform: translateX(-50%) translateY(50%) rotate(45deg);
+    border-top-left-radius: 4px;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.0975);
+}
+
+.activity-feed__tooltip-box::after{
+    z-index: 3;
+    position: absolute;
+    content: "";
+    top: 56px;
+    right: 78px;
+    width: 46px;
+    height: 15px;
+    background: white;
 }
 
 @media (min-width: 640px) {
