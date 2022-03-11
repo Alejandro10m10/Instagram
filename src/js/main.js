@@ -49,9 +49,16 @@ let btnActivityFeed = document.querySelector('#btnActivityFeed'),
     iconBtnActivityFeedSelected = document.querySelector('#iconBtnActivityFeedSelected'),
     iconBtnActivityFeedDeselected = document.querySelector('#iconBtnActivityFeedDeselected');
     
-btnActivityFeed.addEventListener('click', showActivityFeed );
+btnActivityFeed.addEventListener('click', ()=> showActivityFeed(true) );
 addEventMouseDownUp(btnActivityFeed, iconBtnActivityFeedSelected);
 addEventMouseDownUp(btnActivityFeed, iconBtnActivityFeedDeselected);
+
+/* Activity Feed content */
+let activityFeedContent = document.querySelector('.activity-feed'),
+    closeActivityFeedContent = document.querySelector('.activity-feed__background');
+
+closeActivityFeedContent.addEventListener('click', ()=> showActivityFeed(false));
+
 
 // User menu button
 let btnUserMenu = document.querySelector('#btnUserMenu');
@@ -97,7 +104,15 @@ function showFindPeople(){
     btnUserMenuSelected(false);
 }
 
-function showActivityFeed(){
+function showUserMenu(){
+    btnHomeSelected(false);
+    btnMessengerSelected(false);
+    btnFindPeopleSelected(false);
+    btnActivityFeedSelected(false);
+    btnUserMenuSelected(true);
+}
+
+function showIconActivityFeed(){
     btnHomeSelected(false);
     btnMessengerSelected(false);
     btnFindPeopleSelected(false);
@@ -105,12 +120,14 @@ function showActivityFeed(){
     btnUserMenuSelected(false);
 }
 
-function showUserMenu(){
-    btnHomeSelected(false);
-    btnMessengerSelected(false);
-    btnFindPeopleSelected(false);
-    btnActivityFeedSelected(false);
-    btnUserMenuSelected(true);
+function showActivityFeed(selected){
+    if(selected){
+        showIconActivityFeed();
+        removeClass(activityFeedContent, 'no-display');
+    } else{
+        addClass(activityFeedContent, 'no-display');
+        showHome();
+    }
 }
 
 /* Variables that allow us to save the position of the scroll and change it */
