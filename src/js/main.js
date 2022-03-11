@@ -61,7 +61,13 @@ closeActivityFeedContent.addEventListener('click', ()=> showActivityFeed(false))
 
 // User menu button
 let btnUserMenu = document.querySelector('#btnUserMenu');
-btnUserMenu.addEventListener('click', showUserMenu );
+btnUserMenu.addEventListener('click', ()=> showUserMenu(true) );
+
+// User menu content
+let menuUserContent = document.querySelector('.menu-user'),
+    closeMenuUserContent = document.querySelector('.menu-user__background');
+
+closeMenuUserContent.addEventListener('click', ()=> showUserMenu(false));
 
 /* Create new post content */
 let btnNewPost = document.querySelector('#btnNewPost'),
@@ -103,7 +109,7 @@ function showFindPeople(){
     btnUserMenuSelected(false);
 }
 
-function showUserMenu(){
+function showIconUserMenu(){
     btnHomeSelected(false);
     btnMessengerSelected(false);
     btnFindPeopleSelected(false);
@@ -117,6 +123,16 @@ function showIconActivityFeed(){
     btnFindPeopleSelected(false);
     btnActivityFeedSelected(true);
     btnUserMenuSelected(false);
+}
+
+function showUserMenu(selected){
+    if(selected){
+        showIconUserMenu();
+        removeClass(menuUserContent, 'no-display');
+    } else{
+        addClass(menuUserContent, 'no-display');
+        showHome();
+    }
 }
 
 function showActivityFeed(selected){
