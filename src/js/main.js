@@ -59,7 +59,6 @@ let activityFeedContent = document.querySelector('.activity-feed'),
 
 closeActivityFeedContent.addEventListener('click', ()=> showActivityFeed(false));
 
-
 // User menu button
 let btnUserMenu = document.querySelector('#btnUserMenu');
 btnUserMenu.addEventListener('click', showUserMenu );
