@@ -614,7 +614,7 @@ body{
 
 /* Tags */
 .tagOnPosts{
-    z-index: 2;
+    z-index: 1;
     display: grid;
     place-items: center;
     width: fit-content;
@@ -911,7 +911,7 @@ body{
 /* Tooltip */
 .activity-feed__tooltip-arrow::after,
 .menu-user__tooltip-arrow::after{
-    z-index: 3;
+    z-index: 1;
     position: absolute;
     content: "";
     top: 43px;
@@ -923,24 +923,30 @@ body{
     box-shadow: 0 0 5px 1px rgba(0,0,0,0.0975);
 }
 
-.activity-feed__tooltip-arrow::after,
-.activity-feed__tooltip-box::after{
+.activity-feed__tooltip-arrow::after{
     right: 14%;
 }
 
-.menu-user__tooltip-arrow::after,
-.menu-user__tooltip-box::after{
+.activity-feed__tooltip-box::after{
+    right: 15.3%;
+}
+
+.menu-user__tooltip-arrow::after{
     right: 5.8%;
+}
+
+.menu-user__tooltip-box::after{
+    right: 7%;
 }
 
 .activity-feed__tooltip-box::after,
 .menu-user__tooltip-box::after{
-    z-index: 3;
+    z-index: 2;
     position: absolute;
     content: "";
-    top: 56px;
-    width: 46px;
-    height: 15px;
+    top: 55px;
+    width: 16px;
+    height: 2px;
     background: white;
 }
 

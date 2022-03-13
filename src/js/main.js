@@ -395,3 +395,36 @@ function removeAddClass(element, classRemove, classAdd){
 
 function addClass(element, nameClass) { element.classList.add(nameClass);}   
 function removeClass(element, nameClass) { element.classList.remove(nameClass);} 
+
+/* Show slide-dots on posts */
+let allPosts = document.querySelectorAll('.post__content__pictures__nav');
+let currentSlide = 0;
+
+for(let posts of allPosts){
+    let postsNumber = posts.children.length;
+    if(postsNumber > 1){
+        showSlideDotsOnPost(posts, postsNumber);
+    }
+}
+
+function showSlideDotsOnPost(posts, postsNumber){
+    let postContainer = posts.parentElement;
+    postContainer.appendChild(createSlideDotsElement(postsNumber));
+
+}
+
+function createSlideDotsElement(dotsNumber){
+    let slideDotsContent = document.createElement("div");
+    addClass(slideDotsContent, 'post__content__pictures__slide-dots');
+    
+    for(let i = 0; i < dotsNumber ; i++){
+        let dot = document.createElement("span");
+        addClass(dot, 'dot');
+        if(i === currentSlide){
+            addClass(dot, 'currentSlide');
+        }
+        slideDotsContent.appendChild(dot);
+    }
+
+    return slideDotsContent;
+}
