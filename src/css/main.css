@@ -824,7 +824,7 @@ body{
     top: 57px;
     overflow-y: scroll;
     z-index: 1;
-    width: 500px;
+    min-width: 150px;
     background-color: white;
     box-shadow: 0 0 5px 1px rgba(0,0,0,0.0975);
     border-radius: 5px;
@@ -924,19 +924,19 @@ body{
 }
 
 .activity-feed__tooltip-arrow::after{
-    right: 14%;
+    right: 57px;
 }
 
 .activity-feed__tooltip-box::after{
-    right: 15.3%;
+    right: 65px;
 }
 
 .menu-user__tooltip-arrow::after{
-    right: 5.8%;
+    right: 34px;
 }
 
 .menu-user__tooltip-box::after{
-    right: 7%;
+    right: 41px
 }
 
 .activity-feed__tooltip-box::after,
@@ -1008,6 +1008,23 @@ body{
     justify-content: start;
     align-content: center;
     font-size: 1.4rem;
+}
+
+@media (min-width: 402px){
+    .activity-feed__tooltip-arrow::after{
+        right: 79px;
+    }
+    
+    .activity-feed__tooltip-box::after{
+        right: 86px;
+    }
+}
+
+@media (min-width: 540px){
+    
+    .activity-feed__content{
+        width: 500px;
+    }
 }
 
 @media (min-width: 640px) {
@@ -1310,6 +1327,44 @@ body{
     header{
         padding: 0 6.9%;
     }
+
+    .activity-feed__tooltip-arrow::after{
+        right: 152px;
+    }
+    
+    .activity-feed__tooltip-box::after{
+        right: 159px;
+    }
+
+    .menu-user__tooltip-arrow::after{
+        right: 108px;
+    }
+    
+    .menu-user__tooltip-box::after{
+        right: 115px
+    }
+
+    .activity-feed__content{
+        right: 100px;
+    }
+}
+
+@media(min-width: 1155px){
+    .activity-feed__tooltip-arrow::after{
+        right: calc(1% + 150px);
+    }
+    
+    .activity-feed__tooltip-box::after{
+        right: calc(1% + 157px);
+    }
+
+    .menu-user__tooltip-arrow::after{
+        right: 119px;
+    }
+    
+    .menu-user__tooltip-box::after{
+        right: 116px
+    }
 }
 
 @media (min-width: 1400px) {
@@ -1336,6 +1391,30 @@ body{
     .nav__right__item:first-child{
         width: 255px;
         justify-content: start;
+    }
+
+    .activity-feed__tooltip-arrow::after{
+        right: calc(13% + 151px);
+    }
+    
+    .activity-feed__tooltip-box::after{
+        right: calc(13% + 157px);
+    }
+
+    .menu-user__tooltip-arrow::after{
+        right: calc(13% + 106px);
+    }
+    
+    .menu-user__tooltip-box::after{
+        right: calc(13% + 113px);
+    }
+
+    .activity-feed__content{
+        right: 302px;
+    }
+
+    .menu-user__content{
+        right: 283px;
     }
     
 }

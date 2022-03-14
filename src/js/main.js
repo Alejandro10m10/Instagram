@@ -410,7 +410,6 @@ for(let posts of allPosts){
 function showSlideDotsOnPost(posts, postsNumber){
     let postContainer = posts.parentElement;
     postContainer.appendChild(createSlideDotsElement(postsNumber));
-
 }
 
 function createSlideDotsElement(dotsNumber){
