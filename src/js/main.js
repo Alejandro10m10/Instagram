@@ -370,7 +370,6 @@ function changePost(post, postContent, change){ // Change = true - next post  | 
 }
 
 function showNextPreviusButton(postContent, picPosition, picsNumberInPost){
-
     if(picPosition === 0) return;
 
     let btnPreviusPost, btnNextPost;
@@ -380,12 +379,19 @@ function showNextPreviusButton(postContent, picPosition, picsNumberInPost){
         if(elementChild.classList.contains('btnNextPost')) btnNextPost = elementChild;
     }
 
-    if(picPosition === 1) addClass(btnPreviusPost, 'no-display');
+    if(picPosition === 1) {
+        addClass(btnPreviusPost, 'no-display');
+        removeClass(btnNextPost, 'no-display');
+    }
     if(picPosition > 1){
         removeClass(btnPreviusPost, 'no-display');
         removeClass(btnNextPost, 'no-display');
     }
     if(picPosition >= picsNumberInPost) addClass(btnNextPost, 'no-display');
+
+    slideDotsContent = postContent[3];
+
+    showCurrentSlideDot(slideDotsContent, (picPosition - 1 ));
 }
 
 function removeAddClass(element, classRemove, classAdd){
@@ -426,4 +432,14 @@ function createSlideDotsElement(dotsNumber){
     }
 
     return slideDotsContent;
+}
+
+function showCurrentSlideDot(slideDotsElement, dotPosition){
+    let slideDotsElements = slideDotsElement.children;
+
+    for(let i = 0 ; i < slideDotsElements.length ; i++){
+        (i === dotPosition) 
+            ? addClass(slideDotsElements[i], 'currentSlide')
+            : removeClass(slideDotsElements[i], 'currentSlide');
+    }
 }
