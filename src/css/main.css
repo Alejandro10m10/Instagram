@@ -380,6 +380,15 @@ body{
     cursor: pointer;
 }
 
+.post__footer__iconsIteration__left svg:hover,
+.post__footer__iconsIteration__right svg:hover{
+    color: #8E8E8E;
+}
+
+.post__footer__iconsIteration__left--heart-content svg:hover{
+    fill: #8E8E8E;
+}
+
 .post__footer__likes, 
 .post__footer__likes__following, 
 .post__footer__likes__content{
