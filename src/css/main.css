@@ -1019,6 +1019,41 @@ body{
     font-size: 1.4rem;
 }
 
+/* Icon Like Post Heart */
+.post__content__pictures__likePostHeartContent{
+    position: absolute;
+    top: calc(50% - 64px);
+    left: calc(50% - 64px);
+    width: 128px;
+    height: 128px;
+    display: grid;
+    place-content: center;
+}
+
+.iconIconLikePostHeart{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url('https://www.instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png');
+    height: 128px;
+    width: 128px;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.iconIconLikePostHeartAnimation {
+    animation-duration: 1000ms;
+    animation-name: like-heart-animation;
+    animation-timing-function: ease-in-out;
+}
+  
+@keyframes like-heart-animation{ 
+    0% { opacity:0; transform:scale(0); }
+    15% { opacity:.9; transform:scale(1.2); }
+    30% { transform:scale(.95); }
+    45%,
+    80% { opacity:.9; transform:scale(1); }
+}
+
 @media (min-width: 402px){
     .activity-feed__tooltip-arrow::after{
         right: 79px;

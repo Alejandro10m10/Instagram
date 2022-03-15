@@ -313,7 +313,6 @@ function setCursorOnPicturesTags(post){
     post.classList.add('post__withTags');
 }
 
-
 /* Post carousel */
 let btnsNextPost = document.querySelectorAll('.btnNextPost');
 let btnsPreviusPost = document.querySelectorAll('.btnPreviusPost');
@@ -438,6 +437,10 @@ function removeClass(element, nameClass) { element.classList.remove(nameClass);}
 let allPosts = document.querySelectorAll('.post__content__pictures__nav');
 let currentSlide = 0;
 
+for(let post of allPosts){
+    post.addEventListener('dblclick', () => showLikeHeartIcon(post) );
+}
+
 for(let posts of allPosts){
     let postsNumber = posts.children.length;
     if(postsNumber > 1){
@@ -482,18 +485,62 @@ let btnsLikeButtons = document.querySelectorAll('.btnLikePost');
 let btnsUnlikeButtons = document.querySelectorAll('.btnUnlikePost');
 
 for(let btnLikeButton of btnsLikeButtons){
-    btnLikeButton.addEventListener('click', () => likeUnlikePost(btnLikeButton));
+    btnLikeButton.addEventListener('click', () => likePost(btnLikeButton, true));
 }
 
 for(let btnUnlikeButton of btnsUnlikeButtons){
-    btnUnlikeButton.addEventListener('click', () => likeUnlikePost(btnUnlikeButton));
+    btnUnlikeButton.addEventListener('click', () => likePost(btnUnlikeButton, false));
 }
 
-function likeUnlikePost(btnLikeUnlikeButton){
+function likePost(btnLikeUnlikeButton, like){
     let likePostIconsContent = btnLikeUnlikeButton.parentElement.children;
+    let bntLikeButton,
+        btnUnlikeButton;
+
     for(let likePostIconContent of likePostIconsContent){
-        (likePostIconContent.classList.contains('no-display'))
-            ? removeClass(likePostIconContent, 'no-display')
-            : addClass(likePostIconContent, 'no-display');
+        if(likePostIconContent.classList.contains('btnLikePost')) bntLikeButton = likePostIconContent;
+        if(likePostIconContent.classList.contains('btnUnlikePost')) btnUnlikeButton = likePostIconContent;
     }
+
+    if(like){
+        if(!(bntLikeButton.classList.contains('no-display'))){
+            addClass(bntLikeButton, 'no-display');
+            removeClass(btnUnlikeButton, 'no-display');
+        }
+    } else{
+        if(!(bntLikeButton.classList.contains('no-display'))){
+            addClass(bntLikeButton, 'no-display');
+            removeClass(btnUnlikeButton, 'no-display');
+        } else{
+            removeClass(bntLikeButton, 'no-display');
+            addClass(btnUnlikeButton, 'no-display');
+        }
+    }
+}
+
+function showLikeHeartIcon(post){
+    let postContainer = post.parentElement.children;
+    let postFooterElements = post.parentElement.parentElement.parentElement.children[2].children;
+
+    for(let postFooterElement of postFooterElements){
+        if(postFooterElement.classList.contains('post__footer__iconsIteration')){
+            let btnLikeUnlikeButton = postFooterElement.children[0].children[0].children[0];
+            likePost(btnLikeUnlikeButton, true);
+            break;
+        }
+    }
+
+    for(let postElement of postContainer){
+        if(postElement.classList.contains('post__content__pictures__likePostHeartContent') && postElement.classList.contains('no-display') ){
+            removeClass(postElement, 'no-display');
+            let iconIconLikePostHeart = postElement.children[0];
+            addClass(iconIconLikePostHeart, 'iconIconLikePostHeartAnimation');
+            setTimeout(showLikeHeartIAnimation, 1000, postElement, iconIconLikePostHeart);
+        }
+    }
+}
+
+function showLikeHeartIAnimation(post, iconHeart){
+    addClass(post, 'no-display');
+    removeClass(iconHeart, 'iconIconLikePostHeartAnimation');
 }
