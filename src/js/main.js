@@ -475,3 +475,25 @@ function showCurrentSlideDot(slideDotsElement, dotPosition){
             : removeClass(slideDotsElements[i], 'currentSlide');
     }
 }
+
+
+/* Like Button */
+let btnsLikeButtons = document.querySelectorAll('.btnLikePost');
+let btnsUnlikeButtons = document.querySelectorAll('.btnUnlikePost');
+
+for(let btnLikeButton of btnsLikeButtons){
+    btnLikeButton.addEventListener('click', () => likeUnlikePost(btnLikeButton));
+}
+
+for(let btnUnlikeButton of btnsUnlikeButtons){
+    btnUnlikeButton.addEventListener('click', () => likeUnlikePost(btnUnlikeButton));
+}
+
+function likeUnlikePost(btnLikeUnlikeButton){
+    let likePostIconsContent = btnLikeUnlikeButton.parentElement.children;
+    for(let likePostIconContent of likePostIconsContent){
+        (likePostIconContent.classList.contains('no-display'))
+            ? removeClass(likePostIconContent, 'no-display')
+            : addClass(likePostIconContent, 'no-display');
+    }
+}
