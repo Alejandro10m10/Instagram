@@ -363,10 +363,42 @@ function changePost(post, postContent, change){ // Change = true - next post  | 
         }
     }
 
+    reloadInvolvedVideos(post);
+    isnextPicAVideo(nextPic);
+
     showNextPreviusButton(postContent, picPosition, picsNumberInPost);
     removeAddClass(currentPic, 'currentPicture', 'no-display');
     removeAddClass(nextPic, 'no-display', 'currentPicture');
 
+}
+
+function isnextPicAVideo(post){
+    let posts = post.children;
+    for(let post of posts){ 
+        if(post.classList.contains('postVideo')){
+            post.play();
+            return;
+        } 
+    }
+}
+
+function reloadInvolvedVideos(postContainer){
+    let posts = postContainer.children;
+
+    for(let post of posts){
+        let postData = post;
+
+        let postsElements = postData.children;
+        for(let postsElement of postsElements){ 
+            if(postsElement.classList.contains('postVideo')){
+                postsElement.load();
+            } 
+
+            if(postsElement.classList.contains('postVideo__controls') && !postsElement.classList.contains('no-display')){
+                addClass(postsElement, 'no-display');
+            }
+        }
+    }
 }
 
 function showNextPreviusButton(postContent, picPosition, picsNumberInPost){
