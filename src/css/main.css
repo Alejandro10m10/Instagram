@@ -155,12 +155,16 @@ body .no-display{
 }
 
 .histories{
-    width: 97.2%;
+    /* width: 97.2%; */
     margin: 0 0px 9.5px auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow-x: hidden;
+}
+
+.historie:first-child{
+    margin-left: 4px;
 }
 
 .historie{
@@ -232,6 +236,7 @@ body .no-display{
     position: absolute;
     top: 37px;
     left: 4.7px;
+    z-index: 2;
 }
 
 /* Main */
