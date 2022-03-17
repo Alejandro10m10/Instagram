@@ -1,3 +1,8 @@
+:root{
+    --animationBefore: -0;
+    --animationAfter: -320px;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -238,6 +243,30 @@ body .no-display{
     left: 4.7px;
     z-index: 2;
 }
+
+/* Histories animation */
+@-webkit-keyframes scroll {
+    0% {
+        transform: translateX(var(--animationBefore));
+    }
+    100% {
+        transform: translateX(var(--animationAfter));
+    }
+}
+  
+@keyframes scroll {
+    0% {
+        transform: translateX(var(--animationBefore));
+    }
+    100% {
+        transform: translateX(var(--animationAfter));
+    }
+}
+
+.animation {
+    -webkit-animation: scroll 0.5s linear 1;
+            animation: scroll 0.5s linear 1;
+} 
 
 /* Main */
 main{

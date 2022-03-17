@@ -2,7 +2,8 @@ let btnNextHistories = document.querySelector('#btnNextHistories');
 let btnPreviusHistories = document.querySelector('#btnPreviusHistories');
 let histories = document.querySelector('.histories').children;
 
-let transaleX = 0;
+let transaleX = 0,
+    transitionAnimation = 320;
 
 btnNextHistories.addEventListener('click', nextHistories);
 btnPreviusHistories.addEventListener('click', previusHistories);
@@ -25,8 +26,9 @@ function nextHistories(){
         limiteDerecho = saltosHistorias * 80;
 
     // Si las historias son exactas es decir van de 8 en 8
+    let newTransaleX;
     if(transaleX - 640 === -limiteDerecho && missingStories === 0){
-        let newTransaleX = 640 - (missingStories * 80) - 10;
+        newTransaleX = 640 - (missingStories * 80) - 10;
         for(let historie of histories){
             historie.style.transform = `translateX(${transaleX - 640 + newTransaleX}px)`;
         }
@@ -35,7 +37,7 @@ function nextHistories(){
     }
 
     if( (transaleX - 320) == -limiteDerecho){
-        let newTransaleX = 320 - (missingStories * 80) - 10;
+        newTransaleX = 320 - (missingStories * 80) - 10;
         for(let historie of histories){
             historie.style.transform = `translateX(${transaleX + newTransaleX}px)`;
         }
@@ -44,10 +46,27 @@ function nextHistories(){
     }
 
     if(!(transaleX <= -(allHistories))){
-        for(let historie of histories) historie.style.transform = `translateX(${transaleX}px)`;
+        for(let historie of histories) {
+            historie.style.transform = `translateX(${transaleX}px)`;
+            setAnimation(historie, removeAnimation);            
+        }
     }
 
+    btnNextHistories.disabled = true;
+    setTimeout(changeHistoriesPosition, 505);
+}
+
+function changeHistoriesPosition(){
+    let nextTransition = getComputedStyle(document.documentElement).getPropertyValue('--animationAfter');
+    nextTransition = Math.abs(nextTransition.substring(1, nextTransition.length - 2));
+
+    transitionAnimation += 320;
+
+    document.documentElement.style.setProperty('--animationBefore', `-${nextTransition}px`);
+    document.documentElement.style.setProperty('--animationAfter', `-${transitionAnimation}px`);
+
     hideBtnHistories(btnPreviusHistories, false);
+    btnNextHistories.disabled = false;
 }
 
 function previusHistories(){
@@ -65,6 +84,16 @@ function previusHistories(){
     for(let historie of histories){
         historie.style.transform = `translateX(${transaleX}px)`;
     }
+}
+
+let intervalID;
+function setAnimation(element, myCallBack){
+    addClass(element, 'animation');
+    intervalID = setTimeout(myCallBack, 505, element);
+}
+
+function removeAnimation(element){
+    removeClass(element, 'animation');
 }
 
 function hideBtnHistories(btn, hide){
