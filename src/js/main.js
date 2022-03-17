@@ -420,9 +420,12 @@ function showNextPreviusButton(postContent, picPosition, picsNumberInPost){
     }
     if(picPosition >= picsNumberInPost) addClass(btnNextPost, 'no-display');
 
-    slideDotsContent = postContent[3];
-
-    showCurrentSlideDot(slideDotsContent, (picPosition - 1 ));
+    for(let elementChild of postContent){
+        if(elementChild.classList.contains('post__content__pictures__slide-dots')) {
+            let slideDotsContent = elementChild;
+            showCurrentSlideDot(slideDotsContent, (picPosition - 1 ));
+        }
+    }
 }
 
 function removeAddClass(element, classRemove, classAdd){

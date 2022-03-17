@@ -10,6 +10,9 @@ btnPreviusHistories.addEventListener('click', previusHistories);
 // Function that allow us to loop to the next block of histories that are not visible
 function nextHistories(){
     transaleX += (-320);
+    if(histories.length * 70 >= transaleX){
+        console.log('auqi');
+    }
     for(let historie of histories){
         historie.style.transform = `translateX(${transaleX}px)`;
     }
