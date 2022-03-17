@@ -23,11 +23,21 @@ function nextHistories(){
         saltosHistorias = (8 * Math.trunc(saltos)), //Revisamos la cantidad de historias que se pueden ver en el salto
         missingStories = historiesLength - saltosHistorias,
         limiteDerecho = saltosHistorias * 80;
-    
-    if( (transaleX - 320) == -limiteDerecho){
-        let transaleNewX = -(80 * (8 + missingStories) + 15); //Cada historia son 80px, actualmente podemos ver 8 
+
+    // Si las historias son exactas es decir van de 8 en 8
+    if(transaleX - 640 === -limiteDerecho && missingStories === 0){
+        let newTransaleX = 640 - (missingStories * 80) - 10;
         for(let historie of histories){
-            historie.style.transform = `translateX(${transaleNewX}px)`;
+            historie.style.transform = `translateX(${transaleX - 640 + newTransaleX}px)`;
+        }
+        hideBtnHistories(btnNextHistories, true);
+        return;
+    }
+
+    if( (transaleX - 320) == -limiteDerecho){
+        let newTransaleX = 320 - (missingStories * 80) - 10;
+        for(let historie of histories){
+            historie.style.transform = `translateX(${transaleX + newTransaleX}px)`;
         }
         hideBtnHistories(btnNextHistories, true);
         return;
