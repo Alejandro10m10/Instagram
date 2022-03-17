@@ -25,6 +25,11 @@ function nextHistories(){
         missingStories = historiesLength - saltosHistorias,
         limiteDerecho = saltosHistorias * 80;
 
+    changeHistoriesPosition(true);
+    for(let historie of histories) {
+        setAnimation(historie, removeAnimation);             
+    }
+
     // Si las historias son exactas es decir van de 8 en 8
     let newTransaleX;
     if(transaleX - 640 === -limiteDerecho && missingStories === 0){
@@ -48,25 +53,36 @@ function nextHistories(){
     if(!(transaleX <= -(allHistories))){
         for(let historie of histories) {
             historie.style.transform = `translateX(${transaleX}px)`;
-            setAnimation(historie, removeAnimation);            
         }
     }
 
-    btnNextHistories.disabled = true;
-    setTimeout(changeHistoriesPosition, 505);
 }
 
-function changeHistoriesPosition(){
-    let nextTransition = getComputedStyle(document.documentElement).getPropertyValue('--animationAfter');
-    nextTransition = Math.abs(nextTransition.substring(1, nextTransition.length - 2));
+function changeHistoriesPosition(direction){
 
-    transitionAnimation += 320;
+    if(direction){
+        if(transitionAnimation == 320){
+            document.documentElement.style.setProperty('--animationBefore', `-${0}px`);
+            document.documentElement.style.setProperty('--animationAfter', `-${320}px`);
+        } else{
+            document.documentElement.style.setProperty('--animationBefore', `-${transitionAnimation - 320}px`);
+            document.documentElement.style.setProperty('--animationAfter', `-${transitionAnimation}px`);
+        }
+        transitionAnimation += 320;
 
-    document.documentElement.style.setProperty('--animationBefore', `-${nextTransition}px`);
-    document.documentElement.style.setProperty('--animationAfter', `-${transitionAnimation}px`);
+        hideBtnHistories(btnPreviusHistories, false);
+    } else{
+        transitionAnimation -= 320;
+        document.documentElement.style.setProperty('--animationBefore', `-${transitionAnimation}px`);
+        document.documentElement.style.setProperty('--animationAfter', `-${(transitionAnimation - 320) }px`);
+    }
 
-    hideBtnHistories(btnPreviusHistories, false);
-    btnNextHistories.disabled = false;
+    btnNextHistories.disabled = true;
+    btnPreviusHistories.disabled = true;
+    setTimeout( function (){
+        btnNextHistories.disabled = false;
+        btnPreviusHistories.disabled = false;
+    }, 505);
 }
 
 function previusHistories(){
@@ -81,8 +97,10 @@ function previusHistories(){
 
     hideBtnHistories(btnNextHistories, false);
 
+    changeHistoriesPosition(false);
     for(let historie of histories){
         historie.style.transform = `translateX(${transaleX}px)`;
+        setAnimation(historie, removeAnimation);    
     }
 }
 
