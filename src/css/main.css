@@ -843,7 +843,8 @@ body{
 
 /* Activity Feed */
 .activity-feed,
-.menu-user{
+.menu-user,
+.users-histories{
     position: fixed;
     z-index: 3;
     top: 0;
@@ -1087,6 +1088,108 @@ body{
     45%,
     80% { opacity:.9; transform:scale(1); }
 }
+
+/* Users Histories Container */
+.users-histories{
+    background-color: #1a1a1a;
+    width: 100%;
+}
+
+.users-histories__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin: 16px 16px 0px 16px;
+    position: relative;
+}
+
+.user-histories{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.user-histories__header{
+    display: grid;
+    grid-template-columns: 32px auto auto;
+    place-content: space-around;
+    align-items: center;
+}
+
+.users-histories__container{
+    width: 347.712px;
+    height: 617.200px;
+    background-color: black;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.user-histories__header__profile-picture{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+#btnCloseUsersHistories{
+    top: 5.2px;
+    right: 8px;
+    position: relative;
+}
+
+#btnCloseUsersHistories,
+.btnPlayHistorie,
+.btnMuteHistorie,
+.btnOptionsHistorie{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.user-histories__header__user{
+    display:  flex;
+}
+
+.user-histories__header__user__name{
+    color: white;
+    margin-right: 10px;
+}
+
+.user-histories__header__user__time{
+    color: white;
+}
+
+.user-histories__header__buttons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-content: center;
+    place-items: center;
+}
+
+.user-histories__footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+.user-histories__footer__reply{
+    height: auto;
+    padding: 8px 9px;
+    display: grid;
+    place-items: center;
+}
+
+.user-histories__footer__reply__area{
+    width: 249.438px;
+    height: 18px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+
+/* Media Queries */
 
 @media (min-width: 402px){
     .activity-feed__tooltip-arrow::after{
