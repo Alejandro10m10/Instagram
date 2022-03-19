@@ -547,3 +547,24 @@ function showLikeHeartIAnimation(post, iconHeart){
     addClass(post, 'no-display');
     removeClass(iconHeart, 'iconIconLikePostHeartAnimation');
 }
+
+/* User histories */
+let histories = document.querySelector('.histories').children,
+    historiesContainer = document.querySelector('.users-histories'),
+    btnCloseHistories = document.querySelector('#btnCloseUsersHistories');
+
+for(let historie of histories){
+    historie.addEventListener('click', ()=> openHistorie(true));
+}
+
+btnCloseHistories.addEventListener('click', ()=> openHistorie(false));
+
+function openHistorie(value){
+    if(value){
+        removeClass(historiesContainer, 'no-display');
+        addClass(body, 'no-show-scroll');
+    } else{
+        addClass(historiesContainer, 'no-display');
+        removeClass(body, 'no-show-scroll');
+    }
+}

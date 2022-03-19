@@ -1,6 +1,5 @@
 let btnNextHistories = document.querySelector('#btnNextHistories');
 let btnPreviusHistories = document.querySelector('#btnPreviusHistories');
-let histories = document.querySelector('.histories').children;
 
 let transaleX = 0,
     transitionAnimation = 320;
