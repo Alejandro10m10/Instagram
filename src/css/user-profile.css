@@ -1,0 +1,404 @@
+:root{
+    --animationBefore: -0px;
+    --animationAfter: -320px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    pointer-events: none; /* Avoid dragging an img */
+}
+
+/* Header */
+header{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #dfdfdf;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 2;
+    left: 0;
+}
+
+.nav{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    margin: 3px auto 0 auto;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__right__item, .nav__right__item__anchor{
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+
+.nav__right__item__anchor img{
+    position: relative;
+    top: 1px;
+}
+
+.nav__right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__left{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    place-items: center;
+    gap: 22px;
+}
+
+.nav__left__item div{
+    cursor: pointer;
+}
+
+.nav__left__item__messenger{
+    position: relative;
+}
+
+.nav__left__item__messenger__number{
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background-color: #ed4956;
+    width: 18px;
+    min-height: 18px;
+    color: white;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+}
+
+.nav__left__item__messenger__number--messages{
+    font-size: 1.1rem;
+}
+
+
+.user-avatar-picture-profile{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav__left__item:last-child{
+    position: relative;
+}
+
+#btnUserMenu{
+    position: absolute;
+    top: -16.5px;
+    right: -14.5px;
+    display: grid;
+    place-content: center;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+}
+
+.img__histories__outline{
+    background-color: rgba(38,38,38,1);
+}
+
+.img__histories__no-outline{
+    background-color: transparent;
+}
+
+.img__user-avatar-picture{
+    display: grid;
+    place-content: center;
+    width: 27px;
+    height: 27px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.no-display,
+.nav__left__item svg.no-display,
+body .no-display{
+    display: none;
+}
+
+/* Main */
+main{
+    margin-top: 59.5px;
+    height: auto;
+}
+
+body{
+    background-color: #f7f7f7;
+}
+
+/* User profile */
+
+.user-information__top{
+    margin: 16px 16px 0 16px;
+    padding-top: 14px;
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    place-content: center;
+}
+
+.user-information__account__header{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-content: center;
+    place-items: center;
+    position: relative;
+    top: 1px;
+}
+
+.user-information__img{
+    width: 77px;
+    height: 77px;
+    border-radius: 50%;
+}
+
+.user-information__account{
+    display: grid;
+    justify-content: start;
+    place-items: center;
+    justify-self: start;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.user-information__account__username{
+    font-size: 2.6rem;
+    font-weight: lighter;
+}
+
+.user-information__account__configuration-icon{
+    width: 40px;
+    height: 40px;
+    padding: 2px 8px 8px 8px;
+    margin-left: 3px;
+}
+
+#btnEditProfile{
+    margin-top: 10px;
+    display: grid;
+    grid-column: 1/3;
+    justify-self: start;
+    place-items: center;
+    width: 100%;
+    max-width: 250px;
+    height: 30px;
+    padding: 5px 9px;
+    border: 1px solid #dfdfdf;
+    background-color: #fafafa;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.user-information__description{
+    display: grid;
+    grid-column: 1/3;
+    margin-top: 25px;
+}
+
+.user-information__description__data{
+    font-size: 1.4rem;
+    line-height: 17.5px;
+    font-weight: lighter;
+}
+
+.user-information__description__name{
+    font-weight: bold;
+}
+
+.user-information__data{
+    display: grid;
+    grid-column: 1 / 3;
+    margin-top: 20px;
+    padding: 12px 0;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.user-information__data__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 36px;
+    place-content: center;
+    place-items: center;
+}
+
+.user-information__data__list li{
+    text-align: center;
+    font-size: 1.4rem;
+    color: rgb(142, 142, 142);
+}
+
+.user-information__data__list li span{
+    font-weight: bold;
+    display: block;
+    color: black;
+}
+
+/* User content */
+.user-content{
+    width: auto;
+}
+
+.user-content__selected__ul{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.user-content__selected__ul__li{
+    height: 44px;
+    display: grid;
+    cursor: pointer;
+}
+
+.user-content__selected__ul__li:hover{
+    background-color: #FAFAFA;
+}
+
+.user-content__selected__ul__li a{
+    display: grid;
+    place-self: center;
+}
+
+/* Posts */
+.user-content__posts{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 293px));
+    top: 1px;
+    height: 100%;
+    gap: 3px;
+}
+
+.user-content__post{
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-content__post__pciture{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-content__post__icon__background{
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    background-image: url('../assets/icon/instagram-icons-2.png');
+    background-repeat: no-repeat;
+}
+
+.user-content__post__icon__heart{
+    background-position: -340px -333px;
+}
+
+
+.user-content__post__icon__comment{
+    background-position: -382px -334px;
+}
+
+.user-content__post__icons{
+    width: 100%;
+    display: grid;
+    place-content: center;
+    grid-template-rows: repeat(2, auto);
+    gap: 15px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user-content__post__icon{
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(2, auto);
+}
+
+.user-content__post__icon__hearts__number,
+.user-content__post__icon__comments__mnumber{
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: 7px;
+}
+
+/* Footer */
+.footer__nav{
+    margin-bottom: 60px;
+    margin-top: 24px;
+}
+.footer__nav__ul{
+    padding: 0px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 0;
+    justify-content: center;
+}
+
+.footer__nav__ul__listitem a{
+    margin: 0px 8px 12px 8px;
+}
+
+.footer__nav__ul__listitem a,
+.footer__nav__ul__listitem span,
+.footer__nav__ul__listitem select{
+    color: rgb(142, 142, 142);
+    font-size: 1.2rem;
+}
+
+.footer__nav__ul__listitem select option{
+    color: black;
+    font-size: 1.4rem;
+}
+
+.footer__nav__ul__listitem span{
+    margin-left: 16px;
+}
+
+.footer__nav__ul__listitem select{
+    border: none;
+    outline: none;
+    width: 65px;
+}
+
+.footer__nav__ul__bottom{
+    margin: 13px 0;
+}
