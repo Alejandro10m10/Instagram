@@ -1727,3 +1727,90 @@ body{
     display: block;
     color: black;
 }
+
+/* User content */
+.user-content__selected__ul{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.user-content__selected__ul__li{
+    height: 44px;
+    display: grid;
+    cursor: pointer;
+}
+
+.user-content__selected__ul__li:hover{
+    background-color: #FAFAFA;
+}
+
+.user-content__selected__ul__li a{
+    display: grid;
+    place-self: center;
+}
+
+/* Posts */
+.user-content__posts{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 293px));
+    max-height: 293px;
+    gap: 3px;
+    top: 1px;
+    height: 100%;
+}
+
+.user-content__post{
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-content__post__pciture{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-content__post__icon__background{
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    background-image: url('../assets/icon/instagram-icons-2.png');
+    background-repeat: no-repeat;
+}
+
+.user-content__post__icon__heart{
+    background-position: -340px -333px;
+}
+
+
+.user-content__post__icon__comment{
+    background-position: -382px -334px;
+}
+
+.user-content__post__icons{
+    width: 100%;
+    display: grid;
+    place-content: center;
+    grid-template-rows: repeat(2, auto);
+    gap: 15px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user-content__post__icon{
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(2, auto);
+}
+
+.user-content__post__icon__hearts__number,
+.user-content__post__icon__comments__mnumber{
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: 7px;
+}
