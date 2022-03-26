@@ -400,6 +400,7 @@ body{
     border: none;
     outline: none;
     width: 65px;
+    background-color: transparent;
 }
 
 .footer__nav__ul__bottom{
@@ -479,6 +480,9 @@ body{
         padding: 30px 20px 0 20px;
     }
     
+    .user-information{
+        margin-bottom: 40px;
+    }
 
     .user-information__top{
         margin: 0;
@@ -581,7 +585,78 @@ body{
         display: inline-block;
         font-size: 1.5rem;
     }
-}
+
+    /* User - content */
+    .user-content__selected{
+        border-top: 1px solid #dfdfdf;
+        height: 53px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        place-content: center;
+    }
+
+    .user-content__selected__ul{
+        width: fit-content;
+        grid-template-columns: repeat(3, auto);
+        height: inherit;
+    }
+
+    .user-content__selected__ul__li{
+        margin-right: 60px;
+        width: fit-content;
+        height: inherit;
+        position: relative;
+        top: -1px;
+    }
+
+    .user-content__selected__ul__li:last-child{
+        margin-right: 0;
+    }
+
+    .user-content__selected__ul__li__anchor{
+        grid-template-columns: 12px 1fr;
+        place-content: center;
+        gap: 6px;
+    }
+
+    .user-content__selected__ul__li__anchor svg{
+        height: 12px;
+        width: 12px;
+        fill: rgb(142, 142, 142);
+        color: rgb(142, 142, 142);
+        display: grid;
+        place-self: center;
+    }
+
+    .user-content__option-selected{
+        border-top: 1px solid rgb(38, 38, 38);
+    }
+
+    .user-content__option-selected .user-content__selected__ul__li__anchor svg{
+        fill: rgb(38, 38, 38);
+        color: rgb(38, 38, 38);
+    }
+
+    .user-content__selected__ul__li__anchor__text{
+        color: rgb(142, 142, 142);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .user-content__option-selected .user-content__selected__ul__li__anchor .user-content__selected__ul__li__anchor__text{
+        color: rgb(38, 38, 38);
+    }
+
+    .user-content__selected__ul__li__anchor__text.no-display{
+        display: inline-block;
+    }    
+
+    .user-content__posts{
+        gap: 28px;
+        place-content: center;
+    }
 
 
 @media (min-width: 1000px) {
