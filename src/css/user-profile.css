@@ -657,6 +657,7 @@ body{
         gap: 28px;
         place-content: center;
     }
+}
 
 
 @media (min-width: 1000px) {
