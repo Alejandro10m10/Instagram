@@ -146,6 +146,7 @@ header{
 
 .no-display,
 .nav__left__item svg.no-display,
+.nav__center__search span.no-display,
 body .no-display{
     display: none;
 }
@@ -163,20 +164,20 @@ body{
 /* User profile */
 
 .user-information__top{
-    margin: 16px 16px 0 16px;
+    margin-top: 16px;
     padding-top: 14px;
     display: grid;
-    grid-template-columns: 105px 1fr;
+    grid-template-columns: 120px 1fr;
     place-content: center;
 }
 
-.user-information__account__header{
-    display: grid;
-    grid-template-columns: auto auto;
-    place-content: center;
-    place-items: center;
-    position: relative;
-    top: 1px;
+.user-information__description{
+    margin: 0px 16px;
+}
+
+.user-information__top__img{
+    margin-left: 16px;
+    margin-right: 28px;
 }
 
 .user-information__img{
@@ -201,8 +202,9 @@ body{
 .user-information__account__configuration-icon{
     width: 40px;
     height: 40px;
-    padding: 2px 8px 8px 8px;
-    margin-left: 3px;
+    padding: 3.8px 8px 8px 8px;
+    margin-left: 4px;
+    justify-self: start;
 }
 
 #btnEditProfile{
@@ -239,6 +241,7 @@ body{
 
 .user-information__description__name{
     font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .user-information__data{
@@ -401,4 +404,251 @@ body{
 
 .footer__nav__ul__bottom{
     margin: 13px 0;
+}
+
+/* Media queries */
+@media (min-width: 640px) {
+    .nav .no-display{
+        display: grid;
+    }
+
+    /* Search Form */
+    .nav__center{
+        width: 36%;
+        max-width: 268px;
+        height: 36px;
+        place-content: center;
+        place-items: center;
+        background-color: #efefef;
+        border-radius: 8px;
+        position: relative;
+        top: -2.5px;
+        right: calc(0 + 254px);
+    }
+
+    .nav__center__search{
+        position: absolute;
+        min-width: 147.8px;
+        height: 25px;
+        padding: 3px 16px;
+        display: inherit;
+        justify-content: center;
+        align-items: center;
+        place-content: center;
+        left: 6.5%;
+    }
+
+    #txtSearch{
+        border: none;
+        font-size: 1.6rem;
+        color: rgb(38, 38, 38);
+        outline: none;
+        background-color: transparent;
+        width: 120px;
+        height: 100%;
+        position: relative;
+        left: 10%;
+        top: 1.5px;
+    }
+
+    #txtSearch::placeholder{
+        color: rgba(142, 142, 142, 0.671);
+    }
+
+    .searchIcon{
+        position: absolute;
+        left: 1.5px;
+        color: rgba(142, 142, 142);
+    }
+
+    .eraseSearchIcon{
+        display: inline-block;
+        background-image: url('/src/assets/icon/instagram-icons-2.png');
+        background-position: -318px -333px;
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -2.9px;
+        top: 2.8px;
+    }
+}
+
+@media (min-width: 735px) {
+    main{
+        padding: 30px 20px 0 20px;
+    }
+    
+
+    .user-information__top{
+        margin: 0;
+        padding: 0;
+        grid-template-columns: 0.3fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 'user-information__img user-information__account '
+                             'user-information__img user-information__data'
+                             'user-information__img user-information__description';
+        position: relative;
+        top: -4.5px;
+    }
+
+    .user-information__top__img{
+        display: grid;
+        grid-area: user-information__img;
+        justify-content: center;
+        align-content: start;
+        margin-right: 30px;
+        max-width: 321.66px;
+        min-width: 208.538px;
+        margin-left: 0;
+        width: auto;
+    }
+
+    .user-information__img{
+        width: 150px;
+        height: 150px;
+        display: grid;
+    }
+
+    .user-information__account{
+        grid-template-columns: repeat(3, auto);
+        height: auto;
+        place-content: center;
+        margin-bottom: 20px;
+        position: relative;
+        top: -2px;
+    }
+
+    .user-information__account__username{
+        margin-top: 6px;
+    }
+
+    .user-information__account__configuration-icon{
+        padding: 0 8px;
+        padding-bottom: 1.2px;
+    }
+
+    #btnEditProfile{
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+        margin-top: 0;
+        margin-left: 20px;
+        width: fit-content;
+    }
+
+    .user-information__description{
+        display: grid;
+        margin: 0;
+        grid-area: user-information__description;
+        margin-top: 5px;
+    }
+
+    .user-information__description__name{
+        font-size: 1.5rem;
+    }
+
+    .user-information__description__data{
+        margin-top: 4px;
+        font-size: 1.6rem;
+        line-height: 1.4;
+    }
+
+    .user-information__data{
+        display: grid;
+        grid-area: user-information__data;
+        border: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    .user-information__data__list{
+        grid-template-columns: repeat(3, auto);
+        justify-self: start;
+        height: 24px;
+        position: relative;
+        top: 1.5px;
+    }
+
+    .user-information__data__list li{
+        margin-right: 40px;
+        place-self: start;
+        font-size: 1.6rem;
+        color: black;
+    }
+
+    .user-information__data__list li span{
+        display: inline-block;
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (min-width: 1000px) {
+
+    header{
+        padding: 0 6.9%;
+    }
+
+    .activity-feed__tooltip-arrow::after{
+        right: 152px;
+    }
+        
+    .activity-feed__tooltip-box::after{
+        right: 159px;
+    }
+
+    .menu-user__tooltip-arrow::after{
+        right: 108px;
+    }
+    
+    .menu-user__tooltip-box::after{
+        right: 115px
+    }
+
+    .activity-feed__content{
+        right: 100px;
+    }
+}
+
+
+@media (min-width: 1400px) {
+    
+    body{
+        margin: 0 19%;
+    }
+
+    header{
+        padding: 0 17.9%;
+    }
+    
+    .nav__right__item:first-child{
+        width: 255px;
+        justify-content: start;
+    }
+
+    .activity-feed__tooltip-arrow::after{
+        right: calc(13% + 151px);
+    }
+    
+    .activity-feed__tooltip-box::after{
+        right: calc(13% + 157px);
+    }
+
+    .menu-user__tooltip-arrow::after{
+        right: calc(13% + 106px);
+    }
+    
+    .menu-user__tooltip-box::after{
+        right: calc(13% + 113px);
+    }
+
+    .activity-feed__content{
+        right: 302px;
+    }
+
+    .menu-user__content{
+        right: 283px;
+    }
+    
 }
