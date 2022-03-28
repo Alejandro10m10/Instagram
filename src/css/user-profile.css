@@ -26,10 +26,6 @@ a{
     text-decoration: none;
 }
 
-img{
-    pointer-events: none; /* Avoid dragging an img */
-}
-
 /* Header */
 header{
     width: 100%;
@@ -184,6 +180,7 @@ body{
     width: 77px;
     height: 77px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .user-information__account{
@@ -271,6 +268,11 @@ body{
     font-weight: bold;
     display: block;
     color: black;
+}
+
+.user-information__data__list__followers,
+.user-information__data__list__following{
+    cursor: pointer;
 }
 
 /* User content */
@@ -487,7 +489,7 @@ body{
     .user-information__top{
         margin: 0;
         padding: 0;
-        grid-template-columns: 0.3fr 1fr;
+        grid-template-columns: 0.53fr 1fr;
         grid-template-rows: repeat(3, auto);
         grid-template-areas: 'user-information__img user-information__account '
                              'user-information__img user-information__data'
@@ -593,6 +595,8 @@ body{
         display: grid;
         grid-template-columns: repeat(3, auto);
         place-content: center;
+        max-width: 935px;
+        margin: 0 auto;
     }
 
     .user-content__selected__ul{
@@ -657,13 +661,27 @@ body{
         gap: 28px;
         place-content: center;
     }
+
+    .user-content__selected__ul__li:hover{
+        background-color: transparent;
+    }
 }
 
 
 @media (min-width: 1000px) {
 
-    header{
-        padding: 0 6.9%;
+    .nav{
+        max-width: 975px;
+        margin: 3px auto 0 auto;
+    }
+
+    main{
+        margin: 59.5px auto 0 auto;
+        max-width: 975px;
+    }
+
+    .user-information{
+        padding-top: 7px;
     }
 
     .activity-feed__tooltip-arrow::after{
@@ -687,6 +705,7 @@ body{
     }
 }
 
+/*
 
 @media (min-width: 1400px) {
     
@@ -728,3 +747,5 @@ body{
     }
     
 }
+
+*/
