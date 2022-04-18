@@ -81,7 +81,7 @@ function changeHistoriesPosition(direction){
     setTimeout( function (){
         btnNextHistories.disabled = false;
         btnPreviusHistories.disabled = false;
-    }, 505);
+    }, 300);
 }
 
 function previusHistories(){
@@ -106,7 +106,7 @@ function previusHistories(){
 let intervalID;
 function setAnimation(element, myCallBack){
     addClass(element, 'animation');
-    intervalID = setTimeout(myCallBack, 505, element);
+    intervalID = setTimeout(myCallBack, 300, element);
 }
 
 function removeAnimation(element){

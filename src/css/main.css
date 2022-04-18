@@ -264,8 +264,8 @@ body .no-display{
 }
 
 .animation {
-    -webkit-animation: scroll 0.5s linear 1;
-            animation: scroll 0.5s linear 1;
+    -webkit-animation: scroll 0.2s linear 1;
+            animation: scroll 0.2s linear 1;
 } 
 
 /* Main */
